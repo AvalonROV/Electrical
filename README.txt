@@ -1,0 +1,2 @@
+This is the Avalon Electrical Team GitHub Repository. This Repository contains all of the software and hardware development files for the Avalon ROV (Remote Operated Vehicle).
+For more information please visit our website: https://www.facebook.com/AvalonROV/
