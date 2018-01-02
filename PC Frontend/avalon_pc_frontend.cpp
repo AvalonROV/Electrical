@@ -38,8 +38,11 @@ INPUTS: int range_min = The minimum value the float can take
 OUTPUTS: (float) The psuedo-randomly generated number
 */
 float get_rand_float(int range_min, int range_max){
-	float random_number = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (range_max - range_min)));
-	return(random_number);
+	float rand_num = rand() % range_max + range_min;
+	if(rand() > (RAND_MAX / 2)){
+		rand_num = -rand_num;
+	}
+	return rand_num;
 }
 
 //-------------------------------------------------------------------------------------------------------
@@ -191,7 +194,7 @@ void set_seismometer_level_rotation(int rotation_direction){
 //MAIN CODE
 //-------------------------------------------------------------------------------------------------------
 int main(void){
-	srand(static_cast <unsigned> (time(0)));
-	cout << get_seismometer_angle('A');
+	srand(time(NULL));
+	cout << get_seismometer_angle('C');
 	return(0);
 }
