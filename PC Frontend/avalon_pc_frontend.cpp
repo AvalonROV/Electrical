@@ -3,11 +3,11 @@ This is the PC Frontend for the Avalon ROV (Remote Operated Vehicle). It's purpo
 communication between the PC Control Interface and the ROV itself. This set of functions is designed to
 form a library that can be imported and called by the Python script used to generate the interface.
 Please visit our website for further details: https://www.facebook.com/AvalonROV/
-
 ORIGINAL DEVELOPER: SAM MAXWELL
 VERSION: 0.1
 VERSION RELEASE DATE: ENTER DATE HERE
 */
+
 //-------------------------------------------------------------------------------------------------------
 //LIBRARIES
 //-------------------------------------------------------------------------------------------------------
@@ -23,10 +23,20 @@ using namespace std;
 //-------------------------------------------------------------------------------------------------------
 //DEFINITIONS
 //-------------------------------------------------------------------------------------------------------
+//ROV PARAMETERS
+//Motion Parameters
+#define ROV_NUM_AXIS 5    //The Number of Motion Axis available to the ROV
+#define ROV_IMU_NUM_AXIS 6  //The Number of Motion Axis detected by the ROV IMU
 
 //-------------------------------------------------------------------------------------------------------
 //VARIABLES
 //-------------------------------------------------------------------------------------------------------
+//ROV VARIABLES
+//Motion Variables
+int rov_thrust_vals[ROV_NUM_AXIS] = {0};    //The current thrust values for each of the ROV Axis
+int rov_imu_vals[ROV_IMU_NUM_AXIS] = {0};   //The current values of each of the IMU Axis
+int rov_depth;    //The current depth of the ROV in meters
+bool rov_stabilisation_flags[ROV_NUM_AXIS] = {0, 0, 0, 0, 0};   //Flags that set the state of ROV Axis Stabilisation
 
 //-------------------------------------------------------------------------------------------------------
 //TEST FUNCTIONS
@@ -49,57 +59,79 @@ float get_rand_float(int range_min, int range_max){
 //MOTION FUNCTIONS
 //-------------------------------------------------------------------------------------------------------
 /*
-PURPOSE: Sets the desired axial velocity of the ROV, +VE = Forward, -VE = Backward
-INPUTS: float velocity = The desired axial velocity of the ROV
+PURPOSE: Sets thrust values for all ROV Axis
+INPUTS: int thrust_vals[5] = An array containing the axis thrust values ==> {surge, sway, heave, pitch, yaw}
 OUTPUTS: NONE
 */
-void set_axial_velocity(float velocity){
-	
+void set_thrust_vals(int *thrust_vals[ROV_NUM_AXIS]){
+  for(int axis_index = 0; axis_index < ROV_NUM_AXIS; axis_index++){
+    set_thrust_val(axis_index; thrust_vals[axis_index]);
+  }
 }
 
 /*
-PURPOSE: Sets the desired lateral velocity of the ROV, +VE = Strafe Left, -VE = Strafe Right
-INPUTS: float velocity = The desired lateral velocity of the ROV
+PURPOSE: Sets a single thrust value for an ROV Axis. Axis Indexes:
+         Surge = 0
+         Sway = 1
+         Heave = 2
+         Pitch = 3
+         Yaw = 4
+INPUTS: int axis_index = The index of the axis the thrust value is for
+        int thrust_val = The value of thrust for the selected axis
 OUTPUTS: NONE
 */
-void set_lateral_velocity(float velocity){
-	
+void set_thrust_val(int axis_index, int thrust_val){
+  rov_thrust_vals[axis_index] = thrust_val;
 }
 
 /*
-PURPOSE: Sets the desired vertical velocity of the ROV, +VE = Upwards, -VE = Downwards
-INPUTS: float velocity = The desired vertical velocity of the ROV
+PURPOSE: Gets the current readings from the IMU
+INPUTS: int *imu_vals = A pointer to an array that stores the IMU values ==> {x_accel, y_accel, z_accel, x_gyro, y_gyro, z_gyro}
 OUTPUTS: NONE
 */
-void set_vertical_velocity(float velocity){
-	
+void get_imu_vals(int *imu_vals){
+  for(int axis_index = 0; axis_index < ROV_IMU_NUM_AXIS; axis_index++){
+    imu_vals[axis_index] = rov_imu_vals[axis_index];
+  }
 }
 
 /*
-PURPOSE: Sets the desired pitch angle to the horizontal of the ROV, +VE = Pitch Upwards, -VE = Pitch Downwards
-INPUTS:	int angle = The desired pitch angle of the ROV
-OUTPUTS: NONE
+PURPOSE: Gets the current ROV Depth Measurement
+INPUTS: NONE
+OUTPUTS: int depth = The current depth of the ROV in meters
 */
-void set_pitch_angle(int angle){
-	
+void get_depth(void){
+  return rov_depth;
 }
 
 /*
-PURPOSE: Sets the desired yaw angle to North of the ROV, +VE = Yaw Westwards, -VE = Yaw Eastwards
-INPUTS: int angle = The desired yaw angle of the ROV
+PURPOSE: Sets the flags for the axis stabilisation settings of the ROV
+INPUTS: bool stabilisation_flags = An array of flags that active or deactive axis stabilsation ==> {surge, sway, heave, pitch, yaw}
 OUTPUTS: NONE
 */
-void set_yaw_angle(int angle){
-	
+void set_axis_stabilisation(bool *stabilisation_flags[ROV_NUM_AXIS]){
+  for(int axis_index = 0; axis_index < ROV_NUM_AXIS; axis_index++){
+    rov_stabilisation_flags[axis_index] = stabilisation_flags[axis_index];
+  }
 }
 
 /*
-PURPOSE: Sets the desired roll angle to the upright horizontal of the ROV, +VE = Roll Anticlockwise, -VE = Roll Clockwise
-INPUTS: int angle = The desired roll angle of the ROV
+PURPOSE: Sets the P, I and D values for a given access control loop
+INPUTS: int loop_index = The index of the control loop to set the P, I and D values for
+        int pid_vals[3] = The P, I and D values
 OUTPUTS: NONE
 */
-void set_roll_angle(int angle){
-	
+void set_pid_vals(int loop_index, int *pid_vals){
+  //IMPLEMENT ONCE CONTROL LOOPS ARE FINALISED
+}
+
+/*
+PURPOSE: Resets the Accumulated Integral and Derivative Values of the selected PID loop
+INPUTS: int loop_index = The index of the control loop to reset the Accumulated Integral and Derivative Values for
+OUTPUTS: NONE
+*/
+void reset_pid_vals(int loop_index){
+  //IMPLEMENT ONCE CONTROL LOOPS ARE FINALISED
 }
 
 //-------------------------------------------------------------------------------------------------------
@@ -169,7 +201,7 @@ void set_distance_active(bool distance_active){
 }
 
 //-------------------------------------------------------------------------------------------------------
-//DISTANCE MEASUREMENT FUNCTIONS
+//SESIMOMETER FUNCTIONS
 //-------------------------------------------------------------------------------------------------------
 /*
 PURPOSE: Get the current angle measurement from the seismometer for a specifc axis of measurment
@@ -188,6 +220,48 @@ OUTPUTS: NONE
 */
 void set_seismometer_level_rotation(int rotation_direction){
 	
+}
+
+/*
+PURPOSE: Gets the current data from the Seismometer
+INPUTS: NONE
+OUTPUTS: N/A
+*/
+void get_seismometer_data(void){
+  //IMPLEMENT ONCE SEISMOMETER IS COMPLETE
+}
+
+//-------------------------------------------------------------------------------------------------------
+//CAMERA FUNCTIONS
+//-------------------------------------------------------------------------------------------------------
+/*
+PURPOSE: Selects the currently viewable camera
+INPUTS: int camera_index = The index that corresponds to the desired camera
+OUTPUTS: NONE
+*/
+void select_viewable_camera(int camera_index){
+  //IMPLEMENT ONCE CAMERA CONTROL SYSTEM IS COMPLETE
+}
+
+//-------------------------------------------------------------------------------------------------------
+//EMERGENCY STOP FUNCTIONS
+//-------------------------------------------------------------------------------------------------------
+/*
+PURPOSE: Performs an interrupt to Shutoff all Thrusters
+INPUTS: NONE
+OUTPUTS: NONE
+*/
+void e_stop_thrust(void){
+  //IMPLEMENT ONCE EMERGENCY SHUTOFF SYSTEM IS IN PLACE
+}
+
+/*
+PURPOSE: Performs an interrupt to reset the entire ROV system
+INPUTS: NONE
+OUTPUTS: NONE
+*/
+void e_stop_rov(void){
+  //IMPLEMENT ONCE EMERGENCY RESET SYSTEM IS IN PLACE
 }
 
 //-------------------------------------------------------------------------------------------------------
