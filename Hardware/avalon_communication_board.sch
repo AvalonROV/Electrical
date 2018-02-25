@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:avalon_communication_board-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -405,26 +406,36 @@ F 3 "" H 2510 2280 50  0000 C CNN
 $EndComp
 Connection ~ 2510 2280
 $Sheet
-S 1655 4975 1295 875 
+S 1395 4705 1295 875 
 U 5A91950F
 F0 "ethernet_controller" 60
 F1 "ethernet_controller.sch" 60
-F2 "Ether_R" I L 1655 5105 60 
-F3 "Ether_SI" I L 1655 5240 60 
-F4 "Ether_SO" I L 1655 5380 60 
-F5 "Ether_SCK" I L 1655 5520 60 
-F6 "Ether_CS'" I L 1655 5690 60 
+F2 "Ether_R" I L 1395 4835 60 
+F3 "Ether_SI" I L 1395 4970 60 
+F4 "Ether_SO" I L 1395 5110 60 
+F5 "Ether_SCK" I L 1395 5250 60 
+F6 "Ether_CS'" I L 1395 5420 60 
 $EndSheet
 Wire Wire Line
-	1655 5105 1410 5105
+	1395 4835 1150 4835
 Wire Wire Line
-	1655 5240 1410 5240
+	1395 4970 1150 4970
 Wire Wire Line
-	1655 5380 1410 5380
+	1395 5110 1150 5110
 Wire Wire Line
-	1655 5520 1415 5520
+	1395 5250 1155 5250
 Wire Wire Line
-	1655 5690 1425 5690
-Text GLabel 1410 5105 0    60   Input ~ 0
+	1395 5420 1165 5420
+Text GLabel 1150 4835 0    60   Input ~ 0
 Ether_R
+Text Notes 740  4600 0    60   ~ 0
+Ethernet Controller
+Text GLabel 1150 4970 0    60   Input ~ 0
+Ether_SI
+Text GLabel 1150 5110 0    60   Input ~ 0
+Ether_SO
+Text GLabel 1155 5250 0    60   Input ~ 0
+Ether_SCK
+Text GLabel 1165 5420 0    60   Input ~ 0
+Ether_CS'
 $EndSCHEMATC

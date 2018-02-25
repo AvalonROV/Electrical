@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:avalon_communication_board-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -170,9 +171,11 @@ F 3 "" H 4815 3150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Ferrite_Bead 100mA
+L Ferrite_Bead-RESCUE-avalon_communication_board 100mA
 U 1 1 5A916F5B
 P 5060 2235
+AR Path="/5A916F5B" Ref="100mA"  Part="1" 
+AR Path="/5A91950F/5A916F5B" Ref="100mA"  Part="1" 
 F 0 "100mA" V 5010 2235 50  0000 C CNN
 F 1 "Ferrite_Bead" V 5160 2235 50  0000 C CNN
 F 2 "" H 5060 2235 50  0000 C CNN
@@ -225,23 +228,11 @@ F 3 "" H 4785 4240 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3230 1690 3230 1740
-Wire Wire Line
-	3230 1740 3230 2205
+	3230 1690 3230 2205
 Wire Wire Line
 	3430 1740 3430 2205
 Wire Wire Line
-	2290 1740 2525 1740
-Wire Wire Line
-	2525 1740 3230 1740
-Wire Wire Line
-	3230 1740 3430 1740
-Wire Wire Line
-	3430 1740 3610 1740
-Wire Wire Line
-	3610 1740 4180 1740
-Wire Wire Line
-	4180 1740 5060 1740
+	2290 1740 5060 1740
 Connection ~ 3230 1740
 Wire Wire Line
 	4030 2455 4265 2455
@@ -256,9 +247,7 @@ Wire Wire Line
 Wire Wire Line
 	8490 3535 8580 3535
 Wire Wire Line
-	8880 4625 8880 3535
-Wire Wire Line
-	8880 3535 8880 2835
+	8880 4625 8880 2835
 Wire Wire Line
 	8880 2835 8845 2835
 Wire Wire Line
@@ -270,9 +259,7 @@ Wire Wire Line
 Wire Wire Line
 	4030 2755 4180 2755
 Wire Wire Line
-	4180 1740 4180 2755
-Wire Wire Line
-	4180 2755 4180 3255
+	4180 1740 4180 3255
 Connection ~ 3430 1740
 Wire Wire Line
 	4030 2575 4030 2555
@@ -282,33 +269,13 @@ Connection ~ 4180 2755
 Wire Wire Line
 	4030 3055 4115 3055
 Wire Wire Line
-	4115 4625 4115 3555
-Wire Wire Line
-	4115 3555 4115 3055
+	4115 4625 4115 3055
 Wire Wire Line
 	4115 3555 4030 3555
 Wire Wire Line
 	3230 4625 3230 4305
 Wire Wire Line
-	1370 4625 2480 4625
-Wire Wire Line
-	2480 4625 3230 4625
-Wire Wire Line
-	3230 4625 3430 4625
-Wire Wire Line
-	3430 4625 4040 4625
-Wire Wire Line
-	4040 4625 4115 4625
-Wire Wire Line
-	4115 4625 4250 4625
-Wire Wire Line
-	4250 4625 4785 4625
-Wire Wire Line
-	4785 4625 5060 4625
-Wire Wire Line
-	5060 4625 6850 4625
-Wire Wire Line
-	6850 4625 8880 4625
+	1370 4625 8880 4625
 Connection ~ 4115 3555
 Wire Wire Line
 	3430 4305 3430 4625
@@ -327,33 +294,23 @@ Wire Wire Line
 Wire Wire Line
 	4490 2855 4490 2665
 Wire Wire Line
-	4490 2665 4815 2665
-Wire Wire Line
-	4815 2665 5540 2665
+	4490 2665 5540 2665
 Wire Wire Line
 	4030 2955 4490 2955
 Wire Wire Line
-	4490 3300 4815 3300
-Wire Wire Line
-	4815 3300 5365 3300
+	4490 3300 5365 3300
 Wire Wire Line
 	4490 2955 4490 3300
 Wire Wire Line
-	4815 2965 4815 2980
-Wire Wire Line
-	4815 2980 4815 3000
+	4815 2965 4815 3000
 Wire Wire Line
 	5365 3300 5365 3135
 Connection ~ 4815 3300
 Connection ~ 4815 2665
 Wire Wire Line
-	4815 2980 5060 2980
+	4815 2980 5180 2980
 Wire Wire Line
-	5060 2980 5180 2980
-Wire Wire Line
-	5060 2535 5060 2980
-Wire Wire Line
-	5060 2980 5060 3520
+	5060 2535 5060 3520
 Connection ~ 4815 2980
 Connection ~ 4180 1740
 Connection ~ 5060 2980
@@ -367,9 +324,7 @@ Wire Wire Line
 Wire Wire Line
 	5060 3820 5060 4625
 Wire Wire Line
-	4030 3355 4560 3355
-Wire Wire Line
-	4560 3355 5435 3355
+	4030 3355 5435 3355
 Wire Wire Line
 	4560 3355 4560 3365
 Wire Wire Line
@@ -377,13 +332,9 @@ Wire Wire Line
 Wire Wire Line
 	4420 3455 4420 4040
 Wire Wire Line
-	4420 4040 4560 4040
+	4420 4040 5590 4040
 Wire Wire Line
-	4560 4040 5590 4040
-Wire Wire Line
-	4560 3665 4560 3715
-Wire Wire Line
-	4560 3715 4560 3740
+	4560 3665 4560 3740
 Wire Wire Line
 	5435 3355 5435 3235
 Wire Wire Line
@@ -579,13 +530,9 @@ F 3 "" H 1670 3985 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1815 3450 2050 3450
+	1815 3450 2260 3450
 Wire Wire Line
-	2050 3450 2260 3450
-Wire Wire Line
-	1820 3985 2050 3985
-Wire Wire Line
-	2050 3985 2240 3985
+	1820 3985 2240 3985
 Wire Wire Line
 	2050 3450 2050 3550
 Wire Wire Line
@@ -603,9 +550,7 @@ Connection ~ 2050 3985
 Wire Wire Line
 	1515 3450 1370 3450
 Wire Wire Line
-	1370 3450 1370 3985
-Wire Wire Line
-	1370 3985 1370 4625
+	1370 3450 1370 4625
 Wire Wire Line
 	1370 3985 1520 3985
 Connection ~ 1370 3985
