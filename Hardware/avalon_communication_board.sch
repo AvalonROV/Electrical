@@ -346,7 +346,7 @@ Wire Wire Line
 	3100 3910 3100 3760
 Connection ~ 2460 3910
 Text GLabel 3930 4340 2    60   Input ~ 0
-DUE144
+ULTRA_CTR
 Wire Wire Line
 	740  4340 3930 4340
 Wire Wire Line
