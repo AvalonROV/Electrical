@@ -1,4 +1,4 @@
-update=Thu Mar  1 21:09:45 2018
+update=3/2/2018 3:58:19 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -25,7 +25,7 @@ version=1
 NetIExt=net
 [eeschema]
 version=1
-LibDir=
+LibDir=E:/Programs/KiCad/Component Libraries
 [eeschema/libraries]
 LibName1=avalon_communication_board-rescue
 LibName2=power
@@ -57,5 +57,6 @@ LibName27=opto
 LibName28=atmel
 LibName29=contrib
 LibName30=valves
+LibName31=kicad-library-master/library/switches
 [general]
 version=1
