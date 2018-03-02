@@ -262,8 +262,6 @@ F 3 "" H 2460 3910 50  0000 C CNN
 $EndComp
 Text GLabel 3930 4340 2    60   Input ~ 0
 ULTRA_CTRL
-Text Notes 3860 4500 0    60   ~ 0
-PWM Pin 2
 Text Notes 620  2190 0    60   ~ 0
 Ultrasonic Transducer Driver Circuit
 $Comp
@@ -711,19 +709,19 @@ Text GLabel 10205 1285 1    60   Input ~ 0
 P_SCL
 Text GLabel 10060 1285 1    60   Input ~ 0
 P_SDA
-Text GLabel 9980 2150 0    60   Input ~ 0
+Text GLabel 10240 2150 0    60   Input ~ 0
 POW_PWM_0
-Text GLabel 9980 2280 0    60   Input ~ 0
+Text GLabel 10240 2280 0    60   Input ~ 0
 POW_PWM_1
-Text GLabel 9980 2415 0    60   Input ~ 0
+Text GLabel 10240 2415 0    60   Input ~ 0
 POW_PWM_2
-Text GLabel 9980 2550 0    60   Input ~ 0
+Text GLabel 10240 2550 0    60   Input ~ 0
 POW_PWM_3
-Text GLabel 9980 2690 0    60   Input ~ 0
+Text GLabel 10240 2690 0    60   Input ~ 0
 POW_PWM_4
-Text GLabel 9980 2830 0    60   Input ~ 0
+Text GLabel 10240 2830 0    60   Input ~ 0
 POW_PWM_5
-Text GLabel 9980 2970 0    60   Input ~ 0
+Text GLabel 10240 2970 0    60   Input ~ 0
 POW_PWM_6
 Text GLabel 10285 3825 0    60   Input ~ 0
 BLUE_RX
@@ -1006,43 +1004,29 @@ Wire Wire Line
 Wire Wire Line
 	10060 1525 10605 1525
 Wire Wire Line
-	9980 2150 10330 2150
-Wire Wire Line
 	10330 2150 10330 2225
 Wire Wire Line
 	10330 2225 10605 2225
-Wire Wire Line
-	9980 2280 10325 2280
 Wire Wire Line
 	10325 2280 10325 2325
 Wire Wire Line
 	10325 2325 10605 2325
 Wire Wire Line
-	9980 2415 10345 2415
-Wire Wire Line
 	10345 2415 10345 2535
 Wire Wire Line
 	10345 2535 10610 2535
-Wire Wire Line
-	9980 2550 10325 2550
 Wire Wire Line
 	10325 2550 10325 2635
 Wire Wire Line
 	10325 2635 10610 2635
 Wire Wire Line
-	9980 2690 10325 2690
-Wire Wire Line
 	10325 2690 10325 2735
 Wire Wire Line
 	10325 2735 10610 2735
 Wire Wire Line
-	9980 2830 10260 2830
-Wire Wire Line
 	10260 2830 10260 2835
 Wire Wire Line
 	10260 2835 10610 2835
-Wire Wire Line
-	9980 2970 10300 2970
 Wire Wire Line
 	10300 2970 10300 2935
 Wire Wire Line
@@ -1256,11 +1240,11 @@ Wire Wire Line
 	6545 4235 6545 4720
 Connection ~ 6545 4235
 Wire Wire Line
-	7375 3720 7375 2560
+	7375 2560 7375 3720
 Wire Wire Line
-	6915 3720 7375 3720
+	7375 3720 6915 3720
 Wire Wire Line
-	7375 2560 6165 2560
+	6165 2560 7375 2560
 Wire Wire Line
 	6545 4720 7490 4720
 Connection ~ 6545 4535
@@ -1302,4 +1286,55 @@ Wire Wire Line
 	5210 3070 5415 3070
 Text Notes 4675 2225 0    60   ~ 0
 ESP8266 Microcontroller and WIFI
+Wire Wire Line
+	10240 2150 10330 2150
+Wire Wire Line
+	10240 2280 10325 2280
+Wire Wire Line
+	10240 2415 10345 2415
+Wire Wire Line
+	10240 2550 10325 2550
+Wire Wire Line
+	10240 2690 10325 2690
+Wire Wire Line
+	10240 2830 10260 2830
+Wire Wire Line
+	10240 2970 10300 2970
+$Comp
+L CONN_02X03 P?
+U 1 1 5AA08E5D
+P 9370 5685
+F 0 "P?" H 9370 5885 50  0000 C CNN
+F 1 "2x3 Pin SIL" H 9370 5485 50  0000 C CNN
+F 2 "" H 9370 4485 50  0000 C CNN
+F 3 "" H 9370 4485 50  0000 C CNN
+	1    9370 5685
+	0    -1   -1   0   
+$EndComp
+Text GLabel 9185 5185 0    60   Input ~ 0
+Ether_SO
+Text GLabel 9210 6060 0    60   Input ~ 0
+Ether_SI
+Text GLabel 9185 5310 0    60   Input ~ 0
+Ether_SCK
+Wire Wire Line
+	9185 5185 9470 5185
+Wire Wire Line
+	9470 5185 9470 5435
+Wire Wire Line
+	9185 5310 9370 5310
+Wire Wire Line
+	9370 5310 9370 5435
+Wire Wire Line
+	9210 6060 9370 6060
+Wire Wire Line
+	9370 6060 9370 5935
+Text GLabel 10240 2020 0    60   Input ~ 0
+Ether_CS'
+Wire Wire Line
+	10240 2020 10470 2020
+Wire Wire Line
+	10470 2020 10470 2125
+Wire Wire Line
+	10470 2125 10605 2125
 $EndSCHEMATC
