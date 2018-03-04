@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:avalon_communication_board-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -28,6 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:switches
 LIBS:avalon_communication_board-cache
 EELAYER 25 0
 EELAYER END
@@ -44,9 +46,11 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L BH76330FVM U6
+L BH76330FVM-RESCUE-avalon_communication_board U6
 U 1 1 5A9A8FA1
 P 4325 3160
+AR Path="/5A9A8FA1" Ref="U6"  Part="1" 
+AR Path="/5AA1AA75/5A9A8FA1" Ref="U6"  Part="1" 
 F 0 "U6" H 4025 3460 60  0000 C CNN
 F 1 "BH76330FVM" H 4275 2860 60  0000 C CNN
 F 2 "" H 4325 2610 60  0000 C CNN
@@ -77,9 +81,11 @@ F 3 "" H 3250 4275 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L BH76330FVM U7
+L BH76330FVM-RESCUE-avalon_communication_board U7
 U 1 1 5A9A91FB
 P 4335 2415
+AR Path="/5A9A91FB" Ref="U7"  Part="1" 
+AR Path="/5AA1AA75/5A9A91FB" Ref="U7"  Part="1" 
 F 0 "U7" H 4035 2715 60  0000 C CNN
 F 1 "BH76330FVM" H 4285 2115 60  0000 C CNN
 F 2 "" H 4335 1865 60  0000 C CNN
@@ -466,7 +472,7 @@ $EndComp
 Wire Wire Line
 	5440 3110 5635 3110
 $Comp
-L LM2776 U5
+L LM2776-RESCUE-avalon_communication_board U5
 U 1 1 5A9BA94D
 P 3195 5165
 F 0 "U5" H 2945 5415 60  0000 C CNN

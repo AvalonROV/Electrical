@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:avalon_communication_board-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -28,6 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:switches
 LIBS:avalon_communication_board-cache
 EELAYER 25 0
 EELAYER END
