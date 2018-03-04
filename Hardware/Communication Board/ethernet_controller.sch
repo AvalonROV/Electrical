@@ -623,4 +623,6 @@ F 3 "" H 5060 2220 50  0000 C CNN
 	1    5060 2220
 	1    0    0    -1  
 $EndComp
+Text Notes 2300 1580 2    60   ~ 0
+Ethernet Controller
 $EndSCHEMATC

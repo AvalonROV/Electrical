@@ -1335,10 +1335,14 @@ Wire Wire Line
 Wire Wire Line
 	10670 2105 10805 2105
 $Sheet
-S 6510 810  2025 1175
+S 7220 1145 1305 965 
 U 5AA1AA75
 F0 "camera_electronics" 60
 F1 "camera_electronics.sch" 60
+F2 "CAM_CTRL_1A" I L 7220 1385 60 
+F3 "CAM_CTRL_1B" I L 7220 1595 60 
+F4 "CAM_CTRL_2A" I L 7220 1790 60 
+F5 "CAM_CTRL_2B" I L 7220 1955 60 
 $EndSheet
 Text Notes 9805 815  0    60   ~ 0
  Arduino Due Connector
@@ -1349,4 +1353,225 @@ Wire Wire Line
 Connection ~ 3530 4340
 Wire Wire Line
 	6920 4685 5975 4685
+$Comp
+L CONN_01X20 P?
+U 1 1 5A9CACEB
+P 9210 4655
+F 0 "P?" H 9210 5705 50  0000 C CNN
+F 1 "Power Board Connector" V 9310 4655 50  0000 C CNN
+F 2 "" H 9210 4655 50  0000 C CNN
+F 3 "" H 9210 4655 50  0000 C CNN
+	1    9210 4655
+	1    0    0    -1  
+$EndComp
+$Comp
+L +12V #PWR?
+U 1 1 5A9CFE7E
+P 8840 3655
+F 0 "#PWR?" H 8840 3505 50  0001 C CNN
+F 1 "+12V" H 8840 3795 50  0000 C CNN
+F 2 "" H 8840 3655 50  0000 C CNN
+F 3 "" H 8840 3655 50  0000 C CNN
+	1    8840 3655
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8840 3655 8840 3805
+Wire Wire Line
+	8840 3805 9010 3805
+Wire Wire Line
+	9010 3705 8840 3705
+Connection ~ 8840 3705
+$Comp
+L GND #PWR?
+U 1 1 5A9D3A74
+P 8920 5775
+F 0 "#PWR?" H 8920 5525 50  0001 C CNN
+F 1 "GND" H 8920 5625 50  0000 C CNN
+F 2 "" H 8920 5775 50  0000 C CNN
+F 3 "" H 8920 5775 50  0000 C CNN
+	1    8920 5775
+	1    0    0    -1  
+$EndComp
+Text GLabel 8430 4205 0    60   Input ~ 0
+GPIO_54
+Text GLabel 8430 4335 0    60   Input ~ 0
+GPIO_55
+Text GLabel 8430 4470 0    60   Input ~ 0
+GPIO_56
+Text GLabel 8430 4600 0    60   Input ~ 0
+GPIO_57
+Text GLabel 8430 4730 0    60   Input ~ 0
+GPIO_58
+Text GLabel 8430 4860 0    60   Input ~ 0
+GPIO_59
+Text GLabel 6920 1745 0    60   Input ~ 0
+GPIO_60
+Text GLabel 6920 1865 0    60   Input ~ 0
+GPIO_61
+Wire Wire Line
+	8430 4205 9010 4205
+Wire Wire Line
+	8430 4335 8460 4335
+Wire Wire Line
+	8460 4335 8460 4305
+Wire Wire Line
+	8460 4305 9010 4305
+Wire Wire Line
+	8430 4470 8470 4470
+Wire Wire Line
+	8470 4470 8470 4405
+Wire Wire Line
+	8470 4405 9010 4405
+Wire Wire Line
+	8430 4600 8470 4600
+Wire Wire Line
+	8470 4600 8470 4505
+Wire Wire Line
+	8470 4505 9010 4505
+Wire Wire Line
+	8430 4730 8505 4730
+Wire Wire Line
+	8505 4730 8505 4605
+Wire Wire Line
+	8505 4605 9010 4605
+Wire Wire Line
+	8535 4860 8535 4705
+Wire Wire Line
+	8535 4705 9010 4705
+Wire Wire Line
+	8430 4860 8535 4860
+Text GLabel 10400 1635 0    60   Input ~ 0
+GPIO_13
+Text GLabel 10400 1760 0    60   Input ~ 0
+GPIO_12
+Text GLabel 10400 1880 0    60   Input ~ 0
+GPIO_11
+Wire Wire Line
+	10400 1635 10760 1635
+Wire Wire Line
+	10760 1635 10760 1805
+Wire Wire Line
+	10760 1805 10805 1805
+Wire Wire Line
+	10400 1760 10740 1760
+Wire Wire Line
+	10740 1760 10740 1905
+Wire Wire Line
+	10740 1905 10805 1905
+Wire Wire Line
+	10400 1880 10725 1880
+Wire Wire Line
+	10725 1880 10725 2005
+Wire Wire Line
+	10725 2005 10805 2005
+Text GLabel 6920 1505 0    60   Input ~ 0
+GPIO_13
+Text GLabel 6920 1625 0    60   Input ~ 0
+GPIO_12
+Text GLabel 8035 4985 0    60   Input ~ 0
+GPIO_11
+Wire Wire Line
+	8035 4985 8570 4985
+Wire Wire Line
+	8570 4985 8570 4805
+Wire Wire Line
+	8570 4805 9010 4805
+Text GLabel 8040 5110 0    60   Input ~ 0
+POW_PWM_0
+Wire Wire Line
+	8040 5110 8595 5110
+Wire Wire Line
+	8595 5110 8595 4905
+Wire Wire Line
+	8595 4905 9010 4905
+Text GLabel 8040 5230 0    60   Input ~ 0
+POW_PWM_1
+Text GLabel 8040 5365 0    60   Input ~ 0
+POW_PWM_2
+Text GLabel 8040 5500 0    60   Input ~ 0
+POW_PWM_3
+Text GLabel 8040 5640 0    60   Input ~ 0
+POW_PWM_4
+Text GLabel 8040 5780 0    60   Input ~ 0
+POW_PWM_5
+Text GLabel 8040 5920 0    60   Input ~ 0
+POW_PWM_6
+Wire Wire Line
+	8040 5230 8620 5230
+Wire Wire Line
+	8620 5230 8620 5005
+Wire Wire Line
+	8620 5005 9010 5005
+Wire Wire Line
+	8040 5365 8645 5365
+Wire Wire Line
+	8645 5365 8645 5105
+Wire Wire Line
+	8645 5105 9010 5105
+Wire Wire Line
+	8040 5500 8670 5500
+Wire Wire Line
+	8670 5500 8670 5205
+Wire Wire Line
+	8670 5205 9010 5205
+Wire Wire Line
+	8040 5640 8700 5640
+Wire Wire Line
+	8700 5640 8700 5305
+Wire Wire Line
+	8700 5305 9010 5305
+Wire Wire Line
+	8040 5780 8735 5780
+Wire Wire Line
+	8735 5780 8735 5405
+Wire Wire Line
+	8735 5405 9010 5405
+Wire Wire Line
+	8040 5920 8760 5920
+Wire Wire Line
+	8760 5920 8760 5505
+Wire Wire Line
+	8760 5505 9010 5505
+Wire Wire Line
+	8920 3905 8920 5775
+Connection ~ 8920 4005
+Connection ~ 8920 4105
+Wire Wire Line
+	8920 3905 9010 3905
+Wire Wire Line
+	8920 4005 9010 4005
+Wire Wire Line
+	8925 4105 9010 4105
+Wire Wire Line
+	9010 5605 8920 5605
+Connection ~ 8920 5605
+Text Notes 7990 3410 0    60   ~ 0
+Power Board Connector
+Wire Wire Line
+	6920 1505 7040 1505
+Wire Wire Line
+	7040 1505 7040 1385
+Wire Wire Line
+	7040 1385 7220 1385
+Wire Wire Line
+	7040 1625 7040 1595
+Wire Wire Line
+	7040 1595 7220 1595
+Wire Wire Line
+	6920 1745 7030 1745
+Wire Wire Line
+	7030 1745 7030 1790
+Wire Wire Line
+	7030 1790 7220 1790
+Wire Wire Line
+	6920 1865 7030 1865
+Wire Wire Line
+	7030 1865 7030 1955
+Wire Wire Line
+	7030 1955 7220 1955
+Wire Wire Line
+	6920 1625 7040 1625
+Text Notes 8610 970  2    60   ~ 0
+Camera Switching and Transmission Electronics
 $EndSCHEMATC

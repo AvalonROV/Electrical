@@ -802,12 +802,8 @@ F 3 "" H 8730 2520 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 Connection ~ 8510 2520
-Text HLabel 9120 1900 2    60   Input ~ 0
-CAM_2+
 Wire Wire Line
 	8890 1900 9120 1900
-Text HLabel 9180 2520 2    60   Input ~ 0
-CAM_2-
 Wire Wire Line
 	8880 2520 9180 2520
 $Comp
@@ -995,12 +991,8 @@ F 3 "" H 8715 4155 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 Connection ~ 8495 4155
-Text HLabel 9105 3535 2    60   Input ~ 0
-CAM_1+
 Wire Wire Line
 	8875 3535 9105 3535
-Text HLabel 9165 4155 2    60   Input ~ 0
-CAM_1-
 Wire Wire Line
 	8865 4155 9165 4155
 Wire Wire Line
@@ -1098,4 +1090,12 @@ Wire Wire Line
 	5580 5455 5580 5375
 Wire Wire Line
 	5580 5000 5580 5075
+Text GLabel 9120 1900 2    60   Input ~ 0
+CAM2A
+Text GLabel 9180 2520 2    60   Input ~ 0
+CAM2B
+Text GLabel 9105 3535 2    60   Input ~ 0
+CAM1A
+Text GLabel 9165 4155 2    60   Input ~ 0
+CAM1B
 $EndSCHEMATC
