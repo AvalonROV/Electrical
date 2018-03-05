@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:avalon_communication_board-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,7 +28,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:switches
 LIBS:avalon_communication_board-cache
 EELAYER 25 0
 EELAYER END
@@ -612,13 +610,13 @@ $EndComp
 $Comp
 L -5V #PWR46
 U 1 1 5A9CE89D
-P 7820 1600
-F 0 "#PWR46" H 7820 1700 50  0001 C CNN
-F 1 "-5V" H 7820 1750 50  0000 C CNN
-F 2 "" H 7820 1600 50  0000 C CNN
-F 3 "" H 7820 1600 50  0000 C CNN
-	1    7820 1600
-	1    0    0    -1  
+P 7995 1600
+F 0 "#PWR46" H 7995 1700 50  0001 C CNN
+F 1 "-5V" H 7995 1750 50  0000 C CNN
+F 2 "" H 7995 1600 50  0000 C CNN
+F 3 "" H 7995 1600 50  0000 C CNN
+	1    7995 1600
+	-1   0    0    1   
 $EndComp
 $Comp
 L +5V #PWR034
@@ -1010,12 +1008,8 @@ F 1 "-5V" H 8085 3375 50  0000 C CNN
 F 2 "" H 8085 3225 50  0000 C CNN
 F 3 "" H 8085 3225 50  0000 C CNN
 	1    8085 3225
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	7805 3235 8085 3235
-Wire Wire Line
-	8085 3235 8085 3225
 $Comp
 L +5V #PWR042
 U 1 1 5A9F990E
@@ -1098,4 +1092,16 @@ Text GLabel 9105 3535 2    60   Input ~ 0
 CAM1A
 Text GLabel 9165 4155 2    60   Input ~ 0
 CAM1B
+Wire Wire Line
+	7820 1600 7820 1525
+Wire Wire Line
+	7820 1525 7995 1525
+Wire Wire Line
+	7995 1525 7995 1600
+Wire Wire Line
+	7805 3235 7805 3185
+Wire Wire Line
+	7805 3185 8085 3185
+Wire Wire Line
+	8085 3185 8085 3225
 $EndSCHEMATC
