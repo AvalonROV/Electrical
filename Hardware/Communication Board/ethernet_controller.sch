@@ -34,10 +34,10 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 3
-Title ""
+Title "Communication Board"
 Date ""
 Rev ""
-Comp ""
+Comp "Avalon"
 Comment1 ""
 Comment2 ""
 Comment3 ""
