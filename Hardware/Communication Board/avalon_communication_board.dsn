@@ -21,11 +21,10 @@
       )
     )
     (boundary
-      (path pcb 0  89000 -95000  89000 -130000  215000 -130000  215000 -60000
-            89000 -60000  89000 -95000  89000 -95000)
+      (path pcb 0  207000 -130000  106000 -130000  106000 -60000  207000 -60000
+            207000 -130000  207000 -130000)
     )
-    (plane GND (polygon B.Cu 0  215000 -96250  260500 -96250  260500 -126500  215000 -126500
-            215000 -130000  89000 -130000  89000 -60000  215000 -60000  215000 -96250))
+    (plane GND (polygon B.Cu 0  207000 -130000  106000 -130000  106000 -60000  207000 -60000))
     (via "Via[0-1]_600:400_um")
     (rule
       (width 250)
@@ -36,102 +35,102 @@
   )
   (placement
     (component Capacitors_SMD:CP_Elec_6.3x7.7
-      (place C1 113000 -114750 front 180 (PN 100uF))
-      (place C14 112500 -63500 front 180 (PN 100uF))
-      (place C15 122000 -63500 front 180 (PN 330uF))
-      (place C28 177500 -112900 front 270 (PN 47uF))
-      (place C30 177500 -122500 front 270 (PN 47uF))
+      (place C1 111300 -87800 front 0 (PN 100uF))
+      (place C14 111250 -80750 front 0 (PN 100uF))
+      (place C15 122900 -63700 front 0 (PN 330uF))
+      (place C28 168000 -125250 front 0 (PN 47uF))
+      (place C30 158250 -125250 front 0 (PN 47uF))
     )
     (component Capacitors_SMD:C_1206_HandSoldering
-      (place C3 197250 -100000 front 0 (PN 18pF))
-      (place C4 197250 -102250 front 0 (PN 18pF))
-      (place C5 195750 -78500 front 270 (PN 0.1uF))
-      (place C6 179500 -77000 front 90 (PN 10uF))
-      (place C7 190250 -100000 front 0 (PN 10nF))
-      (place C8 186250 -74750 front 0 (PN 10nF))
-      (place C9 204250 -76500 front 0 (PN 1nF))
-      (place C10 198000 -78500 front 270 (PN 0.1uF))
-      (place C11 191250 -78500 front 270 (PN 0.1uF))
-      (place C12 193500 -78500 front 270 (PN 0.1uF))
-      (place C13 139750 -65500 front 270 (PN 100nF))
-      (place C16 193200 -125300 front 0 (PN 2.2uF))
-      (place C17 169400 -108200 front 180 (PN 0.1uF))
-      (place C18 169400 -101600 front 180 (PN 0.1uF))
-      (place C19 169400 -99400 front 0 (PN 0.1uF))
-      (place C20 169400 -106000 front 0 (PN 0.1uF))
-      (place C21 169500 -110400 front 180 (PN 0.1uF))
-      (place C22 169400 -103800 front 180 (PN 0.1uF))
-      (place C23 203500 -122100 front 0 (PN 2.2uF))
-      (place C24 209900 -125400 front 270 (PN 1uF))
-      (place C25 186600 -125300 front 270 (PN 0.1uF))
-      (place C29 188800 -125300 front 270 (PN 0.1uF))
-      (place C31 184400 -125300 front 270 (PN 0.1uF))
-      (place C32 182200 -125300 front 270 (PN 0.1uF))
-    )
-    (component "Communication Board Footprints:EEEFK1E471P"
-      (place C26 186200 -116800 front 90 (PN 470uF))
-      (place C27 186200 -106400 front 90 (PN 470uF))
+      (place C3 144600 -88200 front 270 (PN 18pF))
+      (place C4 147150 -88200 front 270 (PN 18pF))
+      (place C5 176500 -64500 front 270 (PN 0.1uF))
+      (place C6 168275 -88175 front 0 (PN 10uF))
+      (place C7 173200 -84600 front 270 (PN 10nF))
+      (place C8 171700 -76400 front 180 (PN 10nF))
+      (place C9 196025 -69425 front 0 (PN 1nF))
+      (place C10 171500 -64500 front 270 (PN 0.1uF))
+      (place C11 174000 -64500 front 270 (PN 0.1uF))
+      (place C12 169000 -64500 front 270 (PN 0.1uF))
+      (place C13 152250 -61500 front 0 (PN 100nF))
+      (place C16 135500 -102000 front 270 (PN 2.2uF))
+      (place C17 141750 -110500 front 180 (PN 0.1uF))
+      (place C18 141750 -101500 front 180 (PN 0.1uF))
+      (place C19 141750 -106000 front 0 (PN 0.1uF))
+      (place C20 141750 -108250 front 0 (PN 0.1uF))
+      (place C21 141750 -112750 front 180 (PN 0.1uF))
+      (place C22 141750 -103750 front 180 (PN 0.1uF))
+      (place C23 175600 -113600 front 270 (PN 2.2uF))
+      (place C24 150750 -113500 front 90 (PN 1uF))
+      (place C25 126500 -102000 front 270 (PN 0.1uF))
+      (place C29 131000 -102000 front 270 (PN 0.1uF))
+      (place C31 133250 -102000 front 270 (PN 0.1uF))
+      (place C32 128750 -102000 front 270 (PN 0.1uF))
+      (place C26 157500 -106250 front 0 (PN 470uF))
+      (place C27 157500 -101500 front 0 (PN 470uF))
     )
     (component "Diodes_SMD:D_SOD-123"
-      (place D2 105500 -78000 front 0 (PN 1N5819))
+      (place D2 120450 -75800 front 180 (PN 1N5819))
     )
     (component "SMD_Packages:SOIC-28"
-      (place IC1 180444 -89325 front 270 (PN "ENC28J60-I/SO"))
+      (place IC1 159450 -82050 front 90 (PN "ENC28J60-I/SO"))
     )
     (component "Communication Board Footprints:RJHSE-5381"
-      (place J1 211794 -94472 front 90 (PN RJ45_LEDS))
+      (place J1 203500 -87150 front 90 (PN RJ45_LEDS))
     )
     (component "kicad-open-modules-master:0402"
-      (place JP1 90000 -67500 front 270 (PN Jumper))
+      (place JP1 160750 -99250 front 180 (PN Jumper))
     )
     (component Resistors_SMD:R_1206_HandSoldering
-      (place L2 181750 -77000 front 270 (PN Ferrite_Bead))
-      (place R1 127000 -94250 front 270 (PN 1.5K))
-      (place R2 129250 -94250 front 90 (PN 1.5K))
-      (place R3 109500 -94750 front 270 (PN 1K))
-      (place R4 114500 -94750 front 270 (PN 1.5K))
-      (place R5 117000 -94750 front 90 (PN 1.5K))
-      (place R6 112000 -94750 front 270 (PN 1K))
-      (place R7 177250 -77000 front 270 (PN 100K))
-      (place R8 181000 -99500 front 0 (PN 2K))
-      (place R13 204250 -98500 front 0 (PN 100R))
-      (place R14 211250 -76500 front 180 (PN 100R))
-      (place R15 130250 -64000 front 180 (PN 10K))
-      (place R16 130250 -61750 front 180 (PN 10K))
-      (place R17 126250 -105250 front 0 (PN 100K))
-      (place R18 192300 -110500 front 270 (PN 75R))
-      (place R19 192400 -120900 front 270 (PN 75R))
-      (place R20 196750 -118500 front 0 (PN 75R))
-      (place R21 203500 -119800 front 0 (PN 75R))
-      (place R22 194500 -107500 front 270 (PN 3K))
-      (place R23 194500 -114000 front 270 (PN 3K))
-      (place R24 211250 -118650 front 270 (PN 1.5K))
-      (place R25 203500 -117500 front 180 (PN 1.5K))
-      (place R26 196750 -107500 front 270 (PN 3K))
-      (place R27 213500 -105150 front 270 (PN 3K))
-      (place R28 196750 -114000 front 270 (PN 3K))
-      (place R29 213500 -111900 front 270 (PN 3K))
-      (place R30 211250 -105150 front 270 (PN 43R))
-      (place R31 204250 -100750 front 0 (PN 43R))
-      (place R32 211250 -111900 front 270 (PN 43R))
-      (place R33 204250 -103000 front 0 (PN 43R))
+      (place L2 171700 -74100 front 180 (PN Ferrite_Bead))
+      (place R1 195250 -127500 back 180 (PN 1.5K))
+      (place R2 195250 -124500 back 0 (PN 1.5K))
+      (place R3 185500 -113000 back 180 (PN 1K))
+      (place R4 185500 -115500 back 180 (PN 1.5K))
+      (place R5 192500 -115500 back 0 (PN 1.5K))
+      (place R6 192500 -113000 back 180 (PN 1K))
+      (place R7 156825 -67725 front 0 (PN 100K))
+      (place R8 163475 -67700 front 180 (PN 2K))
+      (place R13 195000 -93250 front 270 (PN 100R))
+      (place R14 202850 -69425 front 180 (PN 100R))
+      (place R15 140000 -65250 front 180 (PN 10K))
+      (place R16 146750 -65250 front 180 (PN 10K))
+      (place R17 201500 -118000 back 0 (PN 100K))
+      (place R18 164250 -101500 front 0 (PN 75R))
+      (place R19 164250 -106250 front 0 (PN 75R))
+      (place R20 164250 -108500 front 180 (PN 75R))
+      (place R21 164250 -103750 front 180 (PN 75R))
+      (place R22 173000 -113750 front 270 (PN 3K))
+      (place R23 173250 -91500 front 90 (PN 3K))
+      (place R24 187750 -105000 front 270 (PN 1.5K))
+      (place R25 185250 -105000 front 270 (PN 1.5K))
+      (place R26 190250 -98250 front 270 (PN 3K))
+      (place R27 192750 -98250 front 270 (PN 3K))
+      (place R28 185250 -98250 front 270 (PN 3K))
+      (place R29 187750 -98250 front 270 (PN 3K))
+      (place R30 190500 -90250 front 270 (PN 43R))
+      (place R31 187750 -90250 front 270 (PN 43R))
+      (place R32 185000 -90250 front 270 (PN 43R))
+      (place R33 182250 -90250 front 270 (PN 43R))
+      (place R36 201500 -115250 back 0 (PN 100K))
+      (place R34 112400 -127700 front 180 (PN 100R))
+      (place R35 133600 -61450 front 0 (PN 220R))
     )
     (component "Communication Board Footprints:MSS1278T-334KLD"
-      (place L3 114000 -74500 front 180 (PN 330uH))
-      (place L1 102500 -122000 front 180 (PN 100uH))
+      (place L3 123850 -83300 front 90 (PN 330uH))
+      (place L1 122000 -122300 front 180 (PN 100uH))
     )
     (component Socket_Strips:Socket_Strip_Straight_1x02_Pitch2.54mm
-      (place P1 121500 -86500 front 0 (PN MC34629))
+      (place P1 175000 -126500 front 180 (PN MC34629))
     )
     (component Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm
-      (place P2 136750 -66750 front 270 (PN MC34633))
-      (place P3 142500 -122750 front 90 (PN MC34633))
-      (place P4 131250 -122750 front 90 (PN MC34633))
-      (place P5 182000 -67000 front 90 (PN MC34633))
-      (place U2 135250 -78000 front 90 (PN MPU9250))
+      (place P2 146750 -62250 front 270 (PN MC34633))
+      (place P3 138250 -78750 front 0 (PN MC34633))
+      (place P4 134250 -78750 front 0 (PN MC34633))
+      (place P5 181000 -62000 front 90 (PN MC34633))
     )
     (component Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm
-      (place P6 135500 -90200 front 90 (PN "6 Pin SIL"))
+      (place P6 179250 -125450 front 180 (PN "6 Pin SIL"))
     )
     (component Socket_Strips:Socket_Strip_Straight_1x10_Pitch2.54mm
       (place P7 122220 -70880 front 90 (PN "10 Pin SIL"))
@@ -146,62 +145,68 @@
       (place P12 169540 -91190 front 0 (PN "2x3 Pin SIL"))
     )
     (component Socket_Strips:Socket_Strip_Straight_1x03_Pitch2.54mm
-      (place P13 163500 -103200 front 270 (PN MC34631))
-      (place P14 163500 -106200 front 270 (PN MC34631))
-      (place P15 163500 -100200 front 270 (PN MC34631))
-      (place P16 163500 -109200 front 270 (PN MC34631))
-      (place P17 163500 -112200 front 270 (PN MC34631))
-      (place P18 163500 -115200 front 270 (PN MC34631))
+      (place P13 131250 -122750 front 0 (PN MC34631))
+      (place P14 135250 -122750 front 0 (PN MC34631))
+      (place P15 139250 -122750 front 0 (PN MC34631))
+      (place P16 143250 -122750 front 0 (PN MC34631))
+      (place P17 147250 -122750 front 0 (PN MC34631))
+      (place P18 151250 -122750 front 0 (PN MC34631))
     )
     (component "Connectors_JST:JST_XH_B20B-XH-A_20x2.50mm_Straight"
-      (place P19 92000 -119000 front 90 (PN "Power Board Connector"))
+      (place P19 114400 -94550 front 0 (PN "Power Board Connector"))
     )
     (component "TO_SOT_Packages_SMD:SOT-23"
-      (place Q1 120000 -92750 front 90 (PN FMMT597))
-      (place Q2 120000 -96250 front 270 (PN BC817))
-      (place Q3 125250 -89250 front 90 (PN BC817))
-      (place Q4 123750 -92750 front 90 (PN FMMT597))
-      (place Q5 123750 -96250 front 270 (PN BC817))
+      (place Q1 185250 -118750 back 0 (PN FMMT597))
+      (place Q2 189750 -118750 back 180 (PN BC817))
+      (place Q3 189750 -123750 back 180 (PN BC817))
+      (place Q4 185250 -123750 back 0 (PN FMMT597))
+      (place Q5 193750 -121250 back 180 (PN BC817))
     )
     (component Resistors_SMD:R_0603_HandSoldering
-      (place R9 189250 -96850 front 270 (PN 50R))
-      (place R10 187750 -96850 front 90 (PN 50R))
-      (place R11 185000 -76500 front 180 (PN 50R))
-      (place R12 185000 -78000 front 0 (PN 50R))
+      (place R9 171250 -83300 front 90 (PN 50R))
+      (place R10 169675 -83300 front 270 (PN 50R))
+      (place R11 166350 -73750 front 0 (PN 50R))
+      (place R12 166350 -75300 front 180 (PN 50R))
     )
     (component "kicad-open-modules-master:B3U-1000P"
-      (place SW1 127250 -102500 front 0 (PN "B3U-1000P"))
-      (place SW2 127250 -99500 front 0 (PN "B3U-1000P"))
+      (place SW1 193750 -108250 front 0 (PN "B3U-1000P"))
     )
     (component "Communication Board Footprints:B78476A8247A003"
-      (place U1 194000 -88250 front 270 (PN B78476A8247A003))
+      (place U1 185000 -79550 front 270 (PN B78476A8247A003))
     )
     (component "TO_SOT_Packages_SMD:TO-263-5_TabPin3"
-      (place U3 102000 -68500 front 90 (PN LM2575S))
-      (place V1 123500 -121000 front 270 (PN LM2576))
+      (place U3 112200 -68800 front 90 (PN LM2575S))
+      (place V1 116800 -109025 front 0 (PN LM2576))
     )
     (component "Communication Board Footprints:ESP12"
-      (place U4 141900 -104400 front 180 (PN "ESP-12S"))
+      (place U4 194500 -119750 front 90 (PN "ESP-12S"))
     )
     (component "TO_SOT_Packages_SMD:SOT-23-6_Handsoldering"
-      (place U5 205700 -125500 front 0 (PN LM2776))
+      (place U5 155000 -113500 front 180 (PN LM2776))
     )
     (component "Housings_SSOP:MSOP-8_3x3mm_Pitch0.65mm"
-      (place U6 175900 -106300 front 0 (PN BH76330FVM))
-      (place U7 175900 -102500 front 0 (PN BH76330FVM))
+      (place U6 150250 -107000 front 0 (PN BH76330FVM))
+      (place U7 150250 -101750 front 0 (PN BH76330FVM))
     )
     (component "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm"
-      (place U8 203500 -108000 front 0 (PN LMH6643))
-      (place U9 203500 -113500 front 0 (PN LMH6643))
+      (place U8 177750 -107000 front 0 (PN LMH6643))
+      (place U9 177750 -98500 front 0 (PN LMH6643))
     )
     (component "Crystals:Crystal_SMD_5032-2pin_5.0x3.2mm_HandSoldering"
-      (place Y1 195750 -96750 front 0 (PN "ABM3-25MHz"))
+      (place Y1 150400 -86800 front 270 (PN "ABM3-25MHz"))
     )
     (component Capacitors_SMD:CP_Elec_8x10
-      (place C2 113250 -124000 front 270 (PN 1000uF))
+      (place C2 110900 -120400 front 270 (PN 1000uF))
     )
     (component "Diodes_SMD:D_SOD-323"
-      (place D1 124500 -111500 front 180 (PN BAT60BE))
+      (place D1 126500 -114400 front 90 (PN BAT60BE))
+    )
+    (component Diodes_SMD:D_1206
+      (place D3 107600 -127300 front 90 (PN LED))
+      (place D4 128950 -62600 front 90 (PN LED))
+    )
+    (component "Communication Board Footprints:MPU9250"
+      (place U2 205500 -108000 front 90 (PN MPU9250))
     )
   )
   (library
@@ -245,14 +250,6 @@
       (outline (path signal 50  3250 -1050  -3250 -1050))
       (pin Rect[T]Pad_2000x1600_um 1 -2000 0)
       (pin Rect[T]Pad_2000x1600_um 2 2000 0)
-    )
-    (image "Communication Board Footprints:EEEFK1E471P"
-      (outline (path signal 150  5000 -5000  5000 5000))
-      (outline (path signal 150  -5000 -5000  5000 -5000))
-      (outline (path signal 150  -5000 5000  -5000 -5000))
-      (outline (path signal 150  -5000 5000  5000 5000))
-      (pin Rect[T]Pad_1000x3000_um 1 0 5000)
-      (pin Rect[T]Pad_1000x3000_um 2 0 -5000)
     )
     (image "Diodes_SMD:D_SOD-123"
       (outline (path signal 120  -2250 1000  -2250 -1000))
@@ -864,9 +861,45 @@
       (pin Rect[T]Pad_600x450_um 1 -1050 0)
       (pin Rect[T]Pad_600x450_um 2 1050 0)
     )
+    (image Diodes_SMD:D_1206
+      (outline (path signal 100  -254 254  -254 -254))
+      (outline (path signal 100  127 0  381 0))
+      (outline (path signal 100  -254 0  -508 0))
+      (outline (path signal 100  127 -254  -254 0))
+      (outline (path signal 100  127 254  127 -254))
+      (outline (path signal 100  -254 0  127 254))
+      (outline (path signal 120  -2200 1060  -2200 -1060))
+      (outline (path signal 100  -1700 -950  -1700 950))
+      (outline (path signal 100  1700 -950  -1700 -950))
+      (outline (path signal 100  1700 950  1700 -950))
+      (outline (path signal 100  -1700 950  1700 950))
+      (outline (path signal 50  -2300 1160  2300 1160))
+      (outline (path signal 50  -2300 -1160  2300 -1160))
+      (outline (path signal 50  -2300 1160  -2300 -1160))
+      (outline (path signal 50  2300 1160  2300 -1160))
+      (outline (path signal 120  1000 1060  -2200 1060))
+      (outline (path signal 120  -2200 -1060  1000 -1060))
+      (pin Rect[T]Pad_1000x1600_um 1 -1500 0)
+      (pin Rect[T]Pad_1000x1600_um 2 1500 0)
+    )
+    (image "Communication Board Footprints:MPU9250"
+      (pin Round[A]Pad_1524_um 1 0 0)
+      (pin Round[A]Pad_1524_um 2 0 2540)
+      (pin Round[A]Pad_1524_um 3 0 5080)
+      (pin Round[A]Pad_1524_um 4 0 7620)
+      (pin Round[A]Pad_1524_um 8 15000 0)
+      (pin Round[A]Pad_1524_um 9 15000 2540)
+      (pin Round[A]Pad_1524_um 10 15000 5080)
+      (pin Round[A]Pad_1524_um 11 15000 7620)
+    )
     (padstack Round[A]Pad_1000_um
       (shape (circle F.Cu 1000))
       (shape (circle B.Cu 1000))
+      (attach off)
+    )
+    (padstack Round[A]Pad_1524_um
+      (shape (circle F.Cu 1524))
+      (shape (circle B.Cu 1524))
       (attach off)
     )
     (padstack Round[A]Pad_1600_um
@@ -957,8 +990,8 @@
       (shape (rect F.Cu -4700 -5400 4700 5400))
       (attach off)
     )
-    (padstack Rect[T]Pad_1000x3000_um
-      (shape (rect F.Cu -500 -1500 500 1500))
+    (padstack Rect[T]Pad_1000x1600_um
+      (shape (rect F.Cu -500 -800 500 800))
       (attach off)
     )
     (padstack Rect[T]Pad_1200x900_um
@@ -999,13 +1032,13 @@
         C15-2 C16-2 C23-2 C25-2 C28-2 C29-2 C30-2 C31-2 C32-2 D2-2 IC1-2 IC1-11 IC1-18
         IC1-21 IC1-22 JP1-2 P3-3 P3-4 P5-4 P6-6 P10-6 P10-7 P13-1 P14-1 P15-1 P16-1
         P17-1 P18-1 P19-3 P19-4 P19-5 Q2-3 Q3-3 Q5-3 R8-2 R13-2 R14-1 R20-2 R21-2
-        R22-2 R23-2 SW1-1 SW2-1 U2-4 U3-3 U3-5 U3-3@1 U3-3@2 U3-3@3 U3-3@4 U3-3@5
-        U4-9 U5-2 U6-8 U7-8 U8-5 U9-5 V1-3 V1-5 V1-3@1 V1-3@2 V1-3@3 V1-3@4 V1-3@5
-        C2-2 D1-2)
+        R22-2 R23-2 SW1-1 U3-3 U3-5 U3-3@1 U3-3@2 U3-3@3 U3-3@4 U3-3@5 U4-9 U5-2 U6-8
+        U7-8 U8-5 U9-5 V1-3 V1-5 V1-3@1 V1-3@2 V1-3@3 V1-3@4 V1-3@5 C2-2 D1-2 R34-2
+        R35-2 U2-4)
     )
     (net +5V
       (pins C15-1 C16-1 C25-1 C28-1 C29-1 C30-1 C31-1 C32-1 L3-1 P4-3 P4-4 P5-1 U3-4
-        U5-3 U5-4 U6-6 U7-6 U8-8 U9-8)
+        U5-3 U5-4 U6-6 U7-6 U8-8 U9-8 D4-2)
     )
     (net "Net-(P9-Pad1)"
       (pins P9-1)
@@ -1018,7 +1051,8 @@
     )
     (net +3V3
       (pins C5-1 C10-1 C11-1 C12-1 C13-1 IC1-15 IC1-19 IC1-20 IC1-25 IC1-28 L2-1 P2-1
-        P3-1 P3-2 P6-4 P10-4 R7-1 R15-1 R16-1 R17-1 U2-3 U4-3 U4-8 V1-4 C2-1 L1-2)
+        P3-1 P3-2 P6-4 P10-4 R7-1 R15-1 R16-1 R17-1 U4-3 U4-8 V1-4 C2-1 L1-2 D3-2
+        U2-3)
     )
     (net +12V
       (pins C1-1 C14-1 P4-1 P4-2 P13-3 P14-3 P15-3 P16-3 P17-3 P18-3 P19-1 P19-2 Q1-3
@@ -1088,16 +1122,16 @@
       (pins C24-2 U5-5)
     )
     (net "Net-(C26-Pad1)"
-      (pins C26-1 U6-7)
+      (pins U6-7 C26-1)
     )
     (net "Net-(C26-Pad2)"
-      (pins C26-2 R19-1)
+      (pins R19-1 C26-2)
     )
     (net "Net-(C27-Pad1)"
-      (pins C27-1 U7-7)
+      (pins U7-7 C27-1)
     )
     (net "Net-(C27-Pad2)"
-      (pins C27-2 R18-1)
+      (pins R18-1 C27-2)
     )
     (net "Net-(D1-Pad1)"
       (pins V1-2 D1-1 L1-1)
@@ -1271,7 +1305,7 @@
       (pins P9-4)
     )
     (net ESP_SDA
-      (pins P9-7 U2-2 U4-11)
+      (pins P9-7 U4-11 U2-2)
     )
     (net ESP_SCL
       (pins P9-8 U2-1)
@@ -1337,7 +1371,7 @@
       (pins Q5-2 R3-2 R4-2 R5-1 R6-2)
     )
     (net "Net-(R17-Pad2)"
-      (pins R17-2 SW1-2 U4-1)
+      (pins R17-2 SW1-2 U4-12 U4-1 R36-2)
     )
     (net "Net-(R18-Pad2)"
       (pins R18-2 R21-1 R25-2 U9-3)
@@ -1369,9 +1403,6 @@
     (net "Net-(R29-Pad1)"
       (pins R29-1 R32-2 U9-7)
     )
-    (net "Net-(SW2-Pad2)"
-      (pins SW2-2 U4-10 U4-12)
-    )
     (net "Net-(U1-Pad7)"
       (pins U1-7)
     )
@@ -1396,16 +1427,34 @@
     (net "Net-(U4-Pad7)"
       (pins U4-7)
     )
-    (class kicad_default "" +12V +3V3 +5V -5V BLUE_RX BLUE_TX CAM1A CAM1B
-      CAM2A CAM2B ESP_SCL ESP_SDA Ether_CS' Ether_R Ether_SCK Ether_SI Ether_SO
-      GND GPIO_11 GPIO_12 GPIO_13 GPIO_54 GPIO_55 GPIO_56 GPIO_57 GPIO_58
-      GPIO_59 GPIO_60 GPIO_61 LEDA LEDB "Net-(C17-Pad1)" "Net-(C17-Pad2)"
-      "Net-(C18-Pad1)" "Net-(C18-Pad2)" "Net-(C19-Pad1)" "Net-(C19-Pad2)"
-      "Net-(C20-Pad1)" "Net-(C20-Pad2)" "Net-(C21-Pad1)" "Net-(C21-Pad2)"
-      "Net-(C22-Pad1)" "Net-(C22-Pad2)" "Net-(C24-Pad1)" "Net-(C24-Pad2)"
-      "Net-(C26-Pad1)" "Net-(C26-Pad2)" "Net-(C27-Pad1)" "Net-(C27-Pad2)"
-      "Net-(C3-Pad1)" "Net-(C4-Pad1)" "Net-(C6-Pad1)" "Net-(C7-Pad1)" "Net-(C8-Pad1)"
-      "Net-(C9-Pad1)" "Net-(D1-Pad1)" "Net-(D2-Pad1)" "Net-(IC1-Pad10)" "Net-(IC1-Pad12)"
+    (net "Net-(R36-Pad1)"
+      (pins U4-10 R36-1)
+    )
+    (net "Net-(D3-Pad1)"
+      (pins D3-1 R34-1)
+    )
+    (net "Net-(D4-Pad1)"
+      (pins D4-1 R35-1)
+    )
+    (net "Net-(U2-Pad8)"
+      (pins U2-8)
+    )
+    (net "Net-(U2-Pad9)"
+      (pins U2-9)
+    )
+    (net "Net-(U2-Pad10)"
+      (pins U2-10)
+    )
+    (class kicad_default "" BLUE_RX BLUE_TX CAM1A CAM1B CAM2A CAM2B ESP_SCL
+      ESP_SDA Ether_CS' Ether_R Ether_SCK Ether_SI Ether_SO GPIO_11 GPIO_12
+      GPIO_13 GPIO_54 GPIO_55 GPIO_56 GPIO_57 GPIO_58 GPIO_59 GPIO_60 GPIO_61
+      LEDA LEDB "Net-(C17-Pad1)" "Net-(C17-Pad2)" "Net-(C18-Pad1)" "Net-(C18-Pad2)"
+      "Net-(C19-Pad1)" "Net-(C19-Pad2)" "Net-(C20-Pad1)" "Net-(C20-Pad2)"
+      "Net-(C21-Pad1)" "Net-(C21-Pad2)" "Net-(C22-Pad1)" "Net-(C22-Pad2)"
+      "Net-(C24-Pad1)" "Net-(C24-Pad2)" "Net-(C26-Pad1)" "Net-(C26-Pad2)"
+      "Net-(C27-Pad1)" "Net-(C27-Pad2)" "Net-(C3-Pad1)" "Net-(C4-Pad1)" "Net-(C6-Pad1)"
+      "Net-(C7-Pad1)" "Net-(C8-Pad1)" "Net-(C9-Pad1)" "Net-(D1-Pad1)" "Net-(D2-Pad1)"
+      "Net-(D3-Pad1)" "Net-(D4-Pad1)" "Net-(IC1-Pad10)" "Net-(IC1-Pad12)"
       "Net-(IC1-Pad13)" "Net-(IC1-Pad14)" "Net-(IC1-Pad16)" "Net-(IC1-Pad17)"
       "Net-(IC1-Pad3)" "Net-(IC1-Pad4)" "Net-(IC1-Pad5)" "Net-(J1-Pad1)" "Net-(J1-Pad11)"
       "Net-(J1-Pad2)" "Net-(J1-Pad3)" "Net-(J1-Pad6)" "Net-(J1-Pad9)" "Net-(JP1-Pad1)"
@@ -1417,15 +1466,25 @@
       "Net-(Q2-Pad1)" "Net-(Q3-Pad1)" "Net-(Q4-Pad1)" "Net-(Q5-Pad2)" "Net-(R17-Pad2)"
       "Net-(R18-Pad2)" "Net-(R19-Pad2)" "Net-(R22-Pad1)" "Net-(R23-Pad1)"
       "Net-(R24-Pad1)" "Net-(R25-Pad1)" "Net-(R26-Pad1)" "Net-(R27-Pad1)"
-      "Net-(R28-Pad1)" "Net-(R29-Pad1)" "Net-(SW2-Pad2)" "Net-(U1-Pad10)"
-      "Net-(U1-Pad7)" "Net-(U4-Pad13)" "Net-(U4-Pad14)" "Net-(U4-Pad2)" "Net-(U4-Pad4)"
-      "Net-(U4-Pad6)" "Net-(U4-Pad7)" POW_PWM_0 POW_PWM_1 POW_PWM_2 POW_PWM_3
-      POW_PWM_4 POW_PWM_5 POW_PWM_6 P_SCL P_SDA ULTRA_CTRL
+      "Net-(R28-Pad1)" "Net-(R29-Pad1)" "Net-(R36-Pad1)" "Net-(U1-Pad10)"
+      "Net-(U1-Pad7)" "Net-(U2-Pad10)" "Net-(U2-Pad8)" "Net-(U2-Pad9)" "Net-(U4-Pad13)"
+      "Net-(U4-Pad14)" "Net-(U4-Pad2)" "Net-(U4-Pad4)" "Net-(U4-Pad6)" "Net-(U4-Pad7)"
+      POW_PWM_0 POW_PWM_1 POW_PWM_2 POW_PWM_3 POW_PWM_4 POW_PWM_5 POW_PWM_6
+      P_SCL P_SDA ULTRA_CTRL
       (circuit
         (use_via Via[0-1]_600:400_um)
       )
       (rule
         (width 250)
+        (clearance 200.1)
+      )
+    )
+    (class Power +12V +3V3 +5V -5V GND
+      (circuit
+        (use_via Via[0-1]_600:400_um)
+      )
+      (rule
+        (width 500)
         (clearance 200.1)
       )
     )

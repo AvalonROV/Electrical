@@ -324,7 +324,7 @@ U 1 1 5A982FDE
 P 3525 6250
 F 0 "U2" H 3325 6500 60  0000 C CNN
 F 1 "MPU9250" H 3475 5700 60  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 3525 5700 60  0001 C CNN
+F 2 "Communication Board Footprints:MPU9250" H 3525 5700 60  0001 C CNN
 F 3 "" H 3525 5700 60  0000 C CNN
 	1    3525 6250
 	1    0    0    -1  
@@ -454,12 +454,12 @@ $EndComp
 $Comp
 L +5V #PWR011
 U 1 1 5A989150
-P 5885 1170
-F 0 "#PWR011" H 5885 1020 50  0001 C CNN
-F 1 "+5V" H 5885 1310 50  0000 C CNN
-F 2 "" H 5885 1170 50  0000 C CNN
-F 3 "" H 5885 1170 50  0000 C CNN
-	1    5885 1170
+P 6190 1165
+F 0 "#PWR011" H 6190 1015 50  0001 C CNN
+F 1 "+5V" H 6190 1305 50  0000 C CNN
+F 2 "" H 6190 1165 50  0000 C CNN
+F 3 "" H 6190 1165 50  0000 C CNN
+	1    6190 1165
 	1    0    0    -1  
 $EndComp
 Text Notes 3960 865  0    60   ~ 0
@@ -757,6 +757,272 @@ F 3 "" H 10515 4760 50  0000 C CNN
 	1    10515 4760
 	-1   0    0    1   
 $EndComp
+$Comp
+L CONN_01X08 P11
+U 1 1 5A9ED3A0
+P 11010 5620
+F 0 "P11" H 11010 6070 50  0000 C CNN
+F 1 "8 Pin SIL" V 11110 5620 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x08_Pitch2.54mm" H 11010 5620 50  0001 C CNN
+F 3 "" H 11010 5620 50  0000 C CNN
+	1    11010 5620
+	1    0    0    -1  
+$EndComp
+Text GLabel 10320 5195 0    60   Input ~ 0
+GPIO_54
+Text GLabel 10320 5325 0    60   Input ~ 0
+GPIO_55
+Text GLabel 10320 5460 0    60   Input ~ 0
+GPIO_56
+Text GLabel 10320 5590 0    60   Input ~ 0
+GPIO_57
+Text GLabel 10320 5720 0    60   Input ~ 0
+GPIO_58
+Text GLabel 10320 5850 0    60   Input ~ 0
+GPIO_59
+Text GLabel 10320 5975 0    60   Input ~ 0
+GPIO_60
+Text GLabel 10320 6100 0    60   Input ~ 0
+GPIO_61
+$Comp
+L ESP-12S U4
+U 1 1 5A998B1D
+P 5595 3485
+F 0 "U4" H 5095 4185 60  0000 C CNN
+F 1 "ESP-12S" H 5245 3035 60  0000 C CNN
+F 2 "Communication Board Footprints:ESP12" H 5595 3485 60  0001 C CNN
+F 3 "" H 5595 3485 60  0001 C CNN
+	1    5595 3485
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR024
+U 1 1 5A999F70
+P 4670 4315
+F 0 "#PWR024" H 4670 4065 50  0001 C CNN
+F 1 "GND" H 4670 4165 50  0000 C CNN
+F 2 "" H 4670 4315 50  0000 C CNN
+F 3 "" H 4670 4315 50  0000 C CNN
+	1    4670 4315
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR025
+U 1 1 5A99EE06
+P 5595 2405
+F 0 "#PWR025" H 5595 2255 50  0001 C CNN
+F 1 "+3.3V" H 5595 2545 50  0000 C CNN
+F 2 "" H 5595 2405 50  0000 C CNN
+F 3 "" H 5595 2405 50  0000 C CNN
+	1    5595 2405
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R17
+U 1 1 5A9BB698
+P 6520 2675
+F 0 "R17" V 6600 2675 50  0000 C CNN
+F 1 "100K" V 6520 2675 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 6450 2675 50  0001 C CNN
+F 3 "" H 6520 2675 50  0000 C CNN
+	1    6520 2675
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X06 P6
+U 1 1 5A9D1AC2
+P 7225 3085
+F 0 "P6" H 7225 3435 50  0000 C CNN
+F 1 "6 Pin SIL" V 7325 3085 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm" H 7225 3085 50  0001 C CNN
+F 3 "" H 7225 3085 50  0000 C CNN
+	1    7225 3085
+	1    0    0    -1  
+$EndComp
+Text GLabel 4445 2935 0    60   Input ~ 0
+ESP_SDA
+Text GLabel 4445 3065 0    60   Input ~ 0
+ESP_SCL
+Text Notes 4105 2190 0    60   ~ 0
+ESP8266 Microcontroller and WIFI
+$Comp
+L CONN_02X03 P12
+U 1 1 5AA08E5D
+P 9555 1460
+F 0 "P12" H 9555 1660 50  0000 C CNN
+F 1 "2x3 Pin SIL" H 9555 1260 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_2x03_Pitch2.54mm" H 9555 260 50  0001 C CNN
+F 3 "" H 9555 260 50  0000 C CNN
+	1    9555 1460
+	0    -1   -1   0   
+$EndComp
+Text GLabel 9370 960  0    60   Input ~ 0
+Ether_SO
+Text GLabel 9395 1835 0    60   Input ~ 0
+Ether_SI
+Text GLabel 9370 1085 0    60   Input ~ 0
+Ether_SCK
+Text GLabel 10440 2000 0    60   Input ~ 0
+Ether_CS'
+$Sheet
+S 7220 1145 1305 965 
+U 5AA1AA75
+F0 "camera_electronics" 60
+F1 "camera_electronics.sch" 60
+F2 "CAM_CTRL_1A" I L 7220 1385 60 
+F3 "CAM_CTRL_1B" I L 7220 1595 60 
+F4 "CAM_CTRL_2A" I L 7220 1790 60 
+F5 "CAM_CTRL_2B" I L 7220 1955 60 
+$EndSheet
+Text Notes 9805 815  0    60   ~ 0
+ Arduino Due Connector
+$Comp
+L CONN_01X20 P19
+U 1 1 5A9CACEB
+P 9210 4655
+F 0 "P19" H 9210 5705 50  0000 C CNN
+F 1 "Power Board Connector" V 9310 4655 50  0000 C CNN
+F 2 "Connectors_JST:JST_XH_B20B-XH-A_20x2.50mm_Straight" H 9210 4655 50  0001 C CNN
+F 3 "" H 9210 4655 50  0000 C CNN
+	1    9210 4655
+	1    0    0    -1  
+$EndComp
+$Comp
+L +12V #PWR026
+U 1 1 5A9CFE7E
+P 8840 3655
+F 0 "#PWR026" H 8840 3505 50  0001 C CNN
+F 1 "+12V" H 8840 3795 50  0000 C CNN
+F 2 "" H 8840 3655 50  0000 C CNN
+F 3 "" H 8840 3655 50  0000 C CNN
+	1    8840 3655
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR027
+U 1 1 5A9D3A74
+P 8405 6295
+F 0 "#PWR027" H 8405 6045 50  0001 C CNN
+F 1 "GND" H 8405 6145 50  0000 C CNN
+F 2 "" H 8405 6295 50  0000 C CNN
+F 3 "" H 8405 6295 50  0000 C CNN
+	1    8405 6295
+	1    0    0    -1  
+$EndComp
+Text GLabel 8430 4205 0    60   Input ~ 0
+GPIO_54
+Text GLabel 8430 4335 0    60   Input ~ 0
+GPIO_55
+Text GLabel 8430 4470 0    60   Input ~ 0
+GPIO_56
+Text GLabel 8430 4600 0    60   Input ~ 0
+GPIO_57
+Text GLabel 8430 4730 0    60   Input ~ 0
+GPIO_58
+Text GLabel 8430 4860 0    60   Input ~ 0
+GPIO_59
+Text GLabel 6920 1745 0    60   Input ~ 0
+GPIO_60
+Text GLabel 6920 1865 0    60   Input ~ 0
+GPIO_61
+Text GLabel 10400 1635 0    60   Input ~ 0
+GPIO_13
+Text GLabel 10400 1760 0    60   Input ~ 0
+GPIO_12
+Text GLabel 10400 1880 0    60   Input ~ 0
+GPIO_11
+Text GLabel 6920 1505 0    60   Input ~ 0
+GPIO_13
+Text GLabel 6920 1625 0    60   Input ~ 0
+GPIO_12
+Text GLabel 8035 4985 0    60   Input ~ 0
+GPIO_11
+Text GLabel 8040 5110 0    60   Input ~ 0
+POW_PWM_0
+Text GLabel 8040 5230 0    60   Input ~ 0
+POW_PWM_1
+Text GLabel 8040 5365 0    60   Input ~ 0
+POW_PWM_2
+Text GLabel 8040 5500 0    60   Input ~ 0
+POW_PWM_3
+Text GLabel 8040 5640 0    60   Input ~ 0
+POW_PWM_4
+Text GLabel 8040 5780 0    60   Input ~ 0
+POW_PWM_5
+Text GLabel 8040 5920 0    60   Input ~ 0
+POW_PWM_6
+Text Notes 7990 3410 0    60   ~ 0
+Power Board Connector
+Text Notes 8610 970  2    60   ~ 0
+Camera Switching and Transmission Electronics
+$Comp
+L GND #PWR028
+U 1 1 5A9F877E
+P 3800 1830
+F 0 "#PWR028" H 3800 1580 50  0001 C CNN
+F 1 "GND" H 3800 1680 50  0000 C CNN
+F 2 "" H 3800 1830 50  0000 C CNN
+F 3 "" H 3800 1830 50  0000 C CNN
+	1    3800 1830
+	1    0    0    -1  
+$EndComp
+Text GLabel 10485 3685 0    60   Input ~ 0
+Ether_R
+$Comp
+L Jumper JP1
+U 1 1 5A9FCD7B
+P 8900 6230
+F 0 "JP1" H 8900 6380 50  0000 C CNN
+F 1 "Jumper" H 8900 6150 50  0000 C CNN
+F 2 "kicad-open-modules-master:0402" H 8900 6230 50  0001 C CNN
+F 3 "" H 8900 6230 50  0000 C CNN
+	1    8900 6230
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D3
+U 1 1 5AA3E81A
+P 3270 1550
+F 0 "D3" H 3270 1650 50  0000 C CNN
+F 1 "LED" H 3270 1450 50  0000 C CNN
+F 2 "Diodes_SMD:D_1206" H 3270 1550 50  0001 C CNN
+F 3 "" H 3270 1550 50  0000 C CNN
+	1    3270 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R34
+U 1 1 5AA3F55B
+P 3035 1750
+F 0 "R34" V 3115 1750 50  0000 C CNN
+F 1 "100R" V 3035 1750 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 2965 1750 50  0001 C CNN
+F 3 "" H 3035 1750 50  0000 C CNN
+	1    3035 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L R R35
+U 1 1 5AA42547
+P 5910 1735
+F 0 "R35" V 5990 1735 50  0000 C CNN
+F 1 "220R" V 5910 1735 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 5840 1735 50  0001 C CNN
+F 3 "" H 5910 1735 50  0000 C CNN
+	1    5910 1735
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D4
+U 1 1 5AA47079
+P 6190 1495
+F 0 "D4" H 6190 1595 50  0000 C CNN
+F 1 "LED" H 6190 1395 50  0000 C CNN
+F 2 "Diodes_SMD:D_1206" H 6190 1495 50  0001 C CNN
+F 3 "" H 6190 1495 50  0000 C CNN
+	1    6190 1495
+	0    -1   -1   0   
+$EndComp
 Wire Wire Line
 	800  1050 1100 1050
 Wire Wire Line
@@ -774,7 +1040,7 @@ Connection ~ 2800 1350
 Wire Wire Line
 	800  1500 800  1800
 Wire Wire Line
-	800  1750 2800 1750
+	800  1750 2885 1750
 Wire Wire Line
 	2800 1750 2800 1700
 Connection ~ 800  1750
@@ -900,13 +1166,13 @@ Wire Wire Line
 	4800 1255 4800 1335
 Connection ~ 4800 1255
 Wire Wire Line
-	5885 1255 5580 1255
+	5580 1255 6190 1255
 Wire Wire Line
 	5710 1155 5710 1285
 Wire Wire Line
-	4015 1655 4015 1735
+	4015 1735 4015 1655
 Wire Wire Line
-	3665 1735 5710 1735
+	3665 1735 5760 1735
 Wire Wire Line
 	4800 1735 4800 1635
 Wire Wire Line
@@ -922,8 +1188,6 @@ Wire Wire Line
 	3665 1010 3665 1255
 Wire Wire Line
 	3665 1155 3715 1155
-Wire Wire Line
-	5885 1170 5885 1255
 Wire Wire Line
 	1815 6655 1815 6835
 Wire Wire Line
@@ -1058,33 +1322,6 @@ Wire Wire Line
 Wire Wire Line
 	10515 4955 10810 4955
 Connection ~ 10515 4855
-$Comp
-L CONN_01X08 P11
-U 1 1 5A9ED3A0
-P 11010 5620
-F 0 "P11" H 11010 6070 50  0000 C CNN
-F 1 "8 Pin SIL" V 11110 5620 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x08_Pitch2.54mm" H 11010 5620 50  0001 C CNN
-F 3 "" H 11010 5620 50  0000 C CNN
-	1    11010 5620
-	1    0    0    -1  
-$EndComp
-Text GLabel 10320 5195 0    60   Input ~ 0
-GPIO_54
-Text GLabel 10320 5325 0    60   Input ~ 0
-GPIO_55
-Text GLabel 10320 5460 0    60   Input ~ 0
-GPIO_56
-Text GLabel 10320 5590 0    60   Input ~ 0
-GPIO_57
-Text GLabel 10320 5720 0    60   Input ~ 0
-GPIO_58
-Text GLabel 10320 5850 0    60   Input ~ 0
-GPIO_59
-Text GLabel 10320 5975 0    60   Input ~ 0
-GPIO_60
-Text GLabel 10320 6100 0    60   Input ~ 0
-GPIO_61
 Wire Wire Line
 	10320 5195 10605 5195
 Wire Wire Line
@@ -1131,100 +1368,23 @@ Wire Wire Line
 	10320 6100 10810 6100
 Wire Wire Line
 	10810 6100 10810 5970
-$Comp
-L ESP-12S U4
-U 1 1 5A998B1D
-P 5595 3485
-F 0 "U4" H 5095 4185 60  0000 C CNN
-F 1 "ESP-12S" H 5245 3035 60  0000 C CNN
-F 2 "Communication Board Footprints:ESP12" H 5595 3485 60  0001 C CNN
-F 3 "" H 5595 3485 60  0001 C CNN
-	1    5595 3485
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR024
-U 1 1 5A999F70
-P 4670 4315
-F 0 "#PWR024" H 4670 4065 50  0001 C CNN
-F 1 "GND" H 4670 4165 50  0000 C CNN
-F 2 "" H 4670 4315 50  0000 C CNN
-F 3 "" H 4670 4315 50  0000 C CNN
-	1    4670 4315
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5595 4085 5595 4200
 Wire Wire Line
 	4670 4200 6025 4200
 Wire Wire Line
 	4670 4200 4670 4315
-$Comp
-L +3.3V #PWR025
-U 1 1 5A99EE06
-P 5595 2405
-F 0 "#PWR025" H 5595 2255 50  0001 C CNN
-F 1 "+3.3V" H 5595 2545 50  0000 C CNN
-F 2 "" H 5595 2405 50  0000 C CNN
-F 3 "" H 5595 2405 50  0000 C CNN
-	1    5595 2405
-	1    0    0    -1  
-$EndComp
-$Comp
-L SW_Push SW2
-U 1 1 5A9A6346
-P 6240 4500
-F 0 "SW2" H 6290 4600 50  0000 L CNN
-F 1 "B3U-1000P" H 6240 4440 50  0000 C CNN
-F 2 "kicad-open-modules-master:B3U-1000P" H 6240 4700 50  0001 C CNN
-F 3 "" H 6240 4700 50  0000 C CNN
-	1    6240 4500
-	1    0    0    -1  
-$EndComp
-$Comp
-L SW_Push SW1
-U 1 1 5A9A6A1A
-P 6225 4200
-F 0 "SW1" H 6275 4300 50  0000 L CNN
-F 1 "B3U-1000P" H 6225 4140 50  0000 C CNN
-F 2 "kicad-open-modules-master:B3U-1000P" H 6225 4400 50  0001 C CNN
-F 3 "" H 6225 4400 50  0000 C CNN
-	1    6225 4200
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	6345 3535 6680 3535
-Wire Wire Line
-	6345 3235 6680 3235
+	6345 3235 6675 3235
 Connection ~ 5595 4200
 Wire Wire Line
-	6345 3785 6520 3785
+	6520 3785 6345 3785
 Wire Wire Line
 	6520 2825 6520 4200
-Wire Wire Line
-	6520 4200 6425 4200
-Wire Wire Line
-	6680 4500 6440 4500
-Wire Wire Line
-	6680 3235 6680 4500
-Connection ~ 6680 3535
-$Comp
-L R R17
-U 1 1 5A9BB698
-P 6520 2675
-F 0 "R17" V 6600 2675 50  0000 C CNN
-F 1 "100K" V 6520 2675 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" V 6450 2675 50  0001 C CNN
-F 3 "" H 6520 2675 50  0000 C CNN
-	1    6520 2675
-	1    0    0    -1  
-$EndComp
 Connection ~ 6520 3785
 Connection ~ 6520 2525
 Wire Wire Line
-	6040 4500 5975 4500
-Wire Wire Line
-	5975 4200 5975 4685
+	5975 4200 5975 4320
 Connection ~ 5975 4200
 Wire Wire Line
 	6805 2525 6805 3685
@@ -1232,18 +1392,6 @@ Wire Wire Line
 	6805 3685 6345 3685
 Wire Wire Line
 	5595 2525 6805 2525
-Connection ~ 5975 4500
-$Comp
-L CONN_01X06 P6
-U 1 1 5A9D1AC2
-P 7225 3085
-F 0 "P6" H 7225 3435 50  0000 C CNN
-F 1 "6 Pin SIL" V 7325 3085 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm" H 7225 3085 50  0001 C CNN
-F 3 "" H 7225 3085 50  0000 C CNN
-	1    7225 3085
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6345 2935 7025 2935
 Wire Wire Line
@@ -1251,16 +1399,12 @@ Wire Wire Line
 Wire Wire Line
 	7025 3335 6920 3335
 Wire Wire Line
-	6920 3335 6920 4685
+	6920 3335 6920 4320
 Wire Wire Line
 	7025 3135 6805 3135
 Connection ~ 6805 3135
 Wire Wire Line
 	4670 3435 4845 3435
-Text GLabel 4445 2935 0    60   Input ~ 0
-ESP_SDA
-Text GLabel 4445 3065 0    60   Input ~ 0
-ESP_SCL
 Wire Wire Line
 	4845 2935 4445 2935
 Wire Wire Line
@@ -1269,8 +1413,6 @@ Wire Wire Line
 	4640 3065 4640 3035
 Wire Wire Line
 	4640 3035 4845 3035
-Text Notes 4105 2190 0    60   ~ 0
-ESP8266 Microcontroller and WIFI
 Wire Wire Line
 	10440 2130 10530 2130
 Wire Wire Line
@@ -1285,23 +1427,6 @@ Wire Wire Line
 	10440 2810 10460 2810
 Wire Wire Line
 	10440 2950 10500 2950
-$Comp
-L CONN_02X03 P12
-U 1 1 5AA08E5D
-P 9555 1460
-F 0 "P12" H 9555 1660 50  0000 C CNN
-F 1 "2x3 Pin SIL" H 9555 1260 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_2x03_Pitch2.54mm" H 9555 260 50  0001 C CNN
-F 3 "" H 9555 260 50  0000 C CNN
-	1    9555 1460
-	0    -1   -1   0   
-$EndComp
-Text GLabel 9370 960  0    60   Input ~ 0
-Ether_SO
-Text GLabel 9395 1835 0    60   Input ~ 0
-Ether_SI
-Text GLabel 9370 1085 0    60   Input ~ 0
-Ether_SCK
 Wire Wire Line
 	9370 960  9655 960 
 Wire Wire Line
@@ -1314,55 +1439,17 @@ Wire Wire Line
 	9395 1835 9555 1835
 Wire Wire Line
 	9555 1835 9555 1710
-Text GLabel 10440 2000 0    60   Input ~ 0
-Ether_CS'
 Wire Wire Line
 	10440 2000 10670 2000
 Wire Wire Line
 	10670 2000 10670 2105
 Wire Wire Line
 	10670 2105 10805 2105
-$Sheet
-S 7220 1145 1305 965 
-U 5AA1AA75
-F0 "camera_electronics" 60
-F1 "camera_electronics.sch" 60
-F2 "CAM_CTRL_1A" I L 7220 1385 60 
-F3 "CAM_CTRL_1B" I L 7220 1595 60 
-F4 "CAM_CTRL_2A" I L 7220 1790 60 
-F5 "CAM_CTRL_2B" I L 7220 1955 60 
-$EndSheet
-Text Notes 9805 815  0    60   ~ 0
- Arduino Due Connector
 Wire Wire Line
 	3530 4340 3535 4340
 Wire Wire Line
 	3530 4250 3530 4340
 Connection ~ 3530 4340
-Wire Wire Line
-	6920 4685 5975 4685
-$Comp
-L CONN_01X20 P19
-U 1 1 5A9CACEB
-P 9210 4655
-F 0 "P19" H 9210 5705 50  0000 C CNN
-F 1 "Power Board Connector" V 9310 4655 50  0000 C CNN
-F 2 "Connectors_JST:JST_XH_B20B-XH-A_20x2.50mm_Straight" H 9210 4655 50  0001 C CNN
-F 3 "" H 9210 4655 50  0000 C CNN
-	1    9210 4655
-	1    0    0    -1  
-$EndComp
-$Comp
-L +12V #PWR026
-U 1 1 5A9CFE7E
-P 8840 3655
-F 0 "#PWR026" H 8840 3505 50  0001 C CNN
-F 1 "+12V" H 8840 3795 50  0000 C CNN
-F 2 "" H 8840 3655 50  0000 C CNN
-F 3 "" H 8840 3655 50  0000 C CNN
-	1    8840 3655
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	8840 3655 8840 3805
 Wire Wire Line
@@ -1370,33 +1457,6 @@ Wire Wire Line
 Wire Wire Line
 	9010 3705 8840 3705
 Connection ~ 8840 3705
-$Comp
-L GND #PWR027
-U 1 1 5A9D3A74
-P 8405 6295
-F 0 "#PWR027" H 8405 6045 50  0001 C CNN
-F 1 "GND" H 8405 6145 50  0000 C CNN
-F 2 "" H 8405 6295 50  0000 C CNN
-F 3 "" H 8405 6295 50  0000 C CNN
-	1    8405 6295
-	1    0    0    -1  
-$EndComp
-Text GLabel 8430 4205 0    60   Input ~ 0
-GPIO_54
-Text GLabel 8430 4335 0    60   Input ~ 0
-GPIO_55
-Text GLabel 8430 4470 0    60   Input ~ 0
-GPIO_56
-Text GLabel 8430 4600 0    60   Input ~ 0
-GPIO_57
-Text GLabel 8430 4730 0    60   Input ~ 0
-GPIO_58
-Text GLabel 8430 4860 0    60   Input ~ 0
-GPIO_59
-Text GLabel 6920 1745 0    60   Input ~ 0
-GPIO_60
-Text GLabel 6920 1865 0    60   Input ~ 0
-GPIO_61
 Wire Wire Line
 	8430 4205 9010 4205
 Wire Wire Line
@@ -1429,12 +1489,6 @@ Wire Wire Line
 	8535 4705 9010 4705
 Wire Wire Line
 	8430 4860 8535 4860
-Text GLabel 10400 1635 0    60   Input ~ 0
-GPIO_13
-Text GLabel 10400 1760 0    60   Input ~ 0
-GPIO_12
-Text GLabel 10400 1880 0    60   Input ~ 0
-GPIO_11
 Wire Wire Line
 	10400 1635 10760 1635
 Wire Wire Line
@@ -1453,38 +1507,18 @@ Wire Wire Line
 	10725 1880 10725 2005
 Wire Wire Line
 	10725 2005 10805 2005
-Text GLabel 6920 1505 0    60   Input ~ 0
-GPIO_13
-Text GLabel 6920 1625 0    60   Input ~ 0
-GPIO_12
-Text GLabel 8035 4985 0    60   Input ~ 0
-GPIO_11
 Wire Wire Line
 	8035 4985 8570 4985
 Wire Wire Line
 	8570 4985 8570 4805
 Wire Wire Line
 	8570 4805 9010 4805
-Text GLabel 8040 5110 0    60   Input ~ 0
-POW_PWM_0
 Wire Wire Line
 	8040 5110 8595 5110
 Wire Wire Line
 	8595 5110 8595 4905
 Wire Wire Line
 	8595 4905 9010 4905
-Text GLabel 8040 5230 0    60   Input ~ 0
-POW_PWM_1
-Text GLabel 8040 5365 0    60   Input ~ 0
-POW_PWM_2
-Text GLabel 8040 5500 0    60   Input ~ 0
-POW_PWM_3
-Text GLabel 8040 5640 0    60   Input ~ 0
-POW_PWM_4
-Text GLabel 8040 5780 0    60   Input ~ 0
-POW_PWM_5
-Text GLabel 8040 5920 0    60   Input ~ 0
-POW_PWM_6
 Wire Wire Line
 	8040 5230 8620 5230
 Wire Wire Line
@@ -1529,8 +1563,6 @@ Wire Wire Line
 	8920 3905 9010 3905
 Wire Wire Line
 	8920 4005 9010 4005
-Text Notes 7990 3410 0    60   ~ 0
-Power Board Connector
 Wire Wire Line
 	6920 1505 7040 1505
 Wire Wire Line
@@ -1555,21 +1587,8 @@ Wire Wire Line
 	7030 1955 7220 1955
 Wire Wire Line
 	6920 1625 7040 1625
-Text Notes 8610 970  2    60   ~ 0
-Camera Switching and Transmission Electronics
 Wire Wire Line
 	8920 4105 9010 4105
-$Comp
-L GND #PWR028
-U 1 1 5A9F877E
-P 3800 1830
-F 0 "#PWR028" H 3800 1580 50  0001 C CNN
-F 1 "GND" H 3800 1680 50  0000 C CNN
-F 2 "" H 3800 1830 50  0000 C CNN
-F 3 "" H 3800 1830 50  0000 C CNN
-	1    3800 1830
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3800 1830 3800 1735
 Connection ~ 3800 1735
@@ -1577,8 +1596,6 @@ Wire Wire Line
 	1270 6625 1270 6900
 Wire Wire Line
 	4255 6150 4255 6130
-Text GLabel 10485 3685 0    60   Input ~ 0
-Ether_R
 Wire Wire Line
 	10485 3685 10685 3685
 Wire Wire Line
@@ -1588,17 +1605,6 @@ Wire Wire Line
 Wire Wire Line
 	5595 2405 5595 2635
 Connection ~ 5595 2525
-$Comp
-L Jumper JP1
-U 1 1 5A9FCD7B
-P 8900 6230
-F 0 "JP1" H 8900 6380 50  0000 C CNN
-F 1 "Jumper" H 8900 6150 50  0000 C CNN
-F 2 "kicad-open-modules-master:0402" H 8900 6230 50  0001 C CNN
-F 3 "" H 8900 6230 50  0000 C CNN
-	1    8900 6230
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	8920 6070 8405 6070
 Wire Wire Line
@@ -1612,4 +1618,60 @@ Wire Wire Line
 Wire Wire Line
 	8600 6230 8405 6230
 Connection ~ 8405 6230
+Wire Wire Line
+	3270 1350 3265 1350
+Connection ~ 3270 1350
+Connection ~ 2800 1750
+Wire Wire Line
+	3270 1750 3185 1750
+Wire Wire Line
+	3270 1700 3270 1750
+Wire Wire Line
+	3270 1400 3270 1350
+Wire Wire Line
+	6190 1165 6190 1345
+Connection ~ 5710 1735
+Wire Wire Line
+	6060 1735 6190 1735
+Connection ~ 6190 1255
+Wire Wire Line
+	6190 1735 6190 1645
+Wire Wire Line
+	6425 4200 6675 4200
+$Comp
+L SW_Push SW1
+U 1 1 5A9A6A1A
+P 6225 4200
+F 0 "SW1" H 6275 4300 50  0000 L CNN
+F 1 "B3U-1000P" H 6225 4140 50  0000 C CNN
+F 2 "kicad-open-modules-master:B3U-1000P" H 6225 4400 50  0001 C CNN
+F 3 "" H 6225 4400 50  0000 C CNN
+	1    6225 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6345 3535 6520 3535
+Connection ~ 6520 3535
+$Comp
+L R R36
+U 1 1 5AA53AD2
+P 6675 4035
+F 0 "R36" V 6755 4035 50  0000 C CNN
+F 1 "100K" V 6675 4035 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 6605 4035 50  0001 C CNN
+F 3 "" H 6675 4035 50  0000 C CNN
+	1    6675 4035
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6675 3235 6675 3885
+Wire Wire Line
+	6675 4200 6675 4185
+Connection ~ 6520 4200
+Wire Wire Line
+	6920 4320 5975 4320
+Text Notes 10440 1380 0    60   ~ 0
+I2C - 0
+Text Notes 10005 4270 0    60   ~ 0
+I2C - 1
 $EndSCHEMATC
