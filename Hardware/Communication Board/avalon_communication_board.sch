@@ -1674,4 +1674,9 @@ Text Notes 10440 1380 0    60   ~ 0
 I2C - 0
 Text Notes 10005 4270 0    60   ~ 0
 I2C - 1
+Wire Wire Line
+	1615 6835 1615 6815
+Wire Wire Line
+	1615 6815 1270 6815
+Connection ~ 1270 6815
 $EndSCHEMATC
