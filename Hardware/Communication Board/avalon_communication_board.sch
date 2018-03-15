@@ -856,11 +856,11 @@ F 3 "" H 9555 260 50  0000 C CNN
 	1    9555 1460
 	0    -1   -1   0   
 $EndComp
-Text GLabel 9370 960  0    60   Input ~ 0
+Text GLabel 9370 1155 0    60   Input ~ 0
 Ether_SO
-Text GLabel 9395 1835 0    60   Input ~ 0
+Text GLabel 9330 1815 0    60   Input ~ 0
 Ether_SI
-Text GLabel 9370 1085 0    60   Input ~ 0
+Text GLabel 9370 1030 0    60   Input ~ 0
 Ether_SCK
 Text GLabel 10440 2000 0    60   Input ~ 0
 Ether_CS'
@@ -1428,18 +1428,6 @@ Wire Wire Line
 Wire Wire Line
 	10440 2950 10500 2950
 Wire Wire Line
-	9370 960  9655 960 
-Wire Wire Line
-	9655 960  9655 1210
-Wire Wire Line
-	9370 1085 9555 1085
-Wire Wire Line
-	9555 1085 9555 1210
-Wire Wire Line
-	9395 1835 9555 1835
-Wire Wire Line
-	9555 1835 9555 1710
-Wire Wire Line
 	10440 2000 10670 2000
 Wire Wire Line
 	10670 2000 10670 2105
@@ -1679,4 +1667,16 @@ Wire Wire Line
 Wire Wire Line
 	1615 6815 1270 6815
 Connection ~ 1270 6815
+Wire Wire Line
+	9370 1155 9455 1155
+Wire Wire Line
+	9455 1155 9455 1210
+Wire Wire Line
+	9370 1030 9555 1030
+Wire Wire Line
+	9555 1030 9555 1210
+Wire Wire Line
+	9330 1815 9555 1815
+Wire Wire Line
+	9555 1815 9555 1710
 $EndSCHEMATC
