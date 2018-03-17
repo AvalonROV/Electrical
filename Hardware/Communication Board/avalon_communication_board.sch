@@ -1117,8 +1117,6 @@ Wire Wire Line
 	3860 3060 3650 3060
 Connection ~ 3650 3060
 Wire Wire Line
-	740  4340 740  3330
-Wire Wire Line
 	840  2440 840  2400
 Wire Wire Line
 	840  2400 1040 2400
@@ -1679,4 +1677,19 @@ Wire Wire Line
 	9330 1815 9555 1815
 Wire Wire Line
 	9555 1815 9555 1710
+$Comp
+L R R37
+U 1 1 5AAD6E52
+P 740 3735
+F 0 "R37" V 820 3735 50  0000 C CNN
+F 1 "1.5K" V 740 3735 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 670 3735 50  0001 C CNN
+F 3 "" H 740 3735 50  0000 C CNN
+	1    740  3735
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	740  3330 740  3585
+Wire Wire Line
+	740  3885 740  4340
 $EndSCHEMATC
