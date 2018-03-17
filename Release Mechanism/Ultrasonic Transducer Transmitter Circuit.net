@@ -1,0 +1,20 @@
+* E:\Documents\Development\Avalon\Electrical\Release Mechanism\Ultrasonic Transducer Transmitter Circuit.asc
+Q1 N007 N009 0 0 NPN
+Q2 N006 N008 0 0 NPN
+Q3 N007 N004 N001 0 PNP
+Q4 N006 N003 N001 0 PNP
+R1 N001 N002 1K
+R2 N001 N002 1K
+R3 N005 N004 1.5K
+R4 N005 N009 1.5K
+Q5 N002 N005 0 0 NPN
+R5 N003 N002 1.5K
+R6 N008 N002 1.5K
+V1 N001 0 12
+V2 N005 0 PULSE(0 5 0u 0.1u 0.1u 12.5u 25u)
+.model NPN NPN
+.model PNP PNP
+.lib C:\Users\Sam\Documents\LTspiceXVII\lib\cmp\standard.bjt
+.tran 0 10m 0
+.backanno
+.end
