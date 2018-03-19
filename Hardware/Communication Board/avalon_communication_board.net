@@ -1,7 +1,7 @@
 (export (version D)
   (design
-    (source "E:/Documents/Development/Avalon/Electrical/Hardware/Communication Board/avalon_communication_board.sch")
-    (date "17/03/2018 13:28:01")
+    (source "E:\\Documents\\Development\\Avalon\\Electrical\\Hardware\\Communication Board\\avalon_communication_board.sch")
+    (date "19/03/2018 20:28:22")
     (tool "Eeschema 4.0.5")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -1166,14 +1166,14 @@
         (pin (num 1) (name 1) (type passive))
         (pin (num 2) (name 2) (type passive)))))
   (libraries
-    (library (logical microchip)
-      (uri E:\Programs\KiCad\share\kicad\library\microchip.lib))
-    (library (logical conn)
-      (uri E:\Programs\KiCad\share\kicad\library\conn.lib))
     (library (logical power)
       (uri E:\Programs\KiCad\share\kicad\library\power.lib))
     (library (logical device)
       (uri E:\Programs\KiCad\share\kicad\library\device.lib))
+    (library (logical conn)
+      (uri E:\Programs\KiCad\share\kicad\library\conn.lib))
+    (library (logical microchip)
+      (uri E:\Programs\KiCad\share\kicad\library\microchip.lib))
     (library (logical avalon_communication_board-cache)
       (uri "E:\\Documents\\Development\\Avalon\\Electrical\\Hardware\\Communication Board\\avalon_communication_board-cache.lib")))
   (nets
