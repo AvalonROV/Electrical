@@ -28,6 +28,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:ReleaseBoard-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -263,17 +264,6 @@ F 3 "" H 4050 5500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LM324 U2
-U 3 1 5AA1A648
-P 5675 5200
-F 0 "U2" H 5675 5400 50  0000 L CNN
-F 1 "LM324" H 5675 5000 50  0000 L CNN
-F 2 "Housings_DIP:DIP-14_W7.62mm" H 5625 5300 50  0001 C CNN
-F 3 "" H 5725 5400 50  0001 C CNN
-	3    5675 5200
-	1    0    0    -1  
-$EndComp
-$Comp
 L R R1
 U 1 1 5AA1A9B0
 P 2325 4700
@@ -331,12 +321,12 @@ $EndComp
 $Comp
 L R R6
 U 1 1 5AA1ADAB
-P 4325 5675
-F 0 "R6" V 4405 5675 50  0000 C CNN
-F 1 "1M" V 4325 5675 50  0000 C CNN
-F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4255 5675 50  0001 C CNN
-F 3 "" H 4325 5675 50  0001 C CNN
-	1    4325 5675
+P 4205 5660
+F 0 "R6" V 4285 5660 50  0000 C CNN
+F 1 "1M" V 4205 5660 50  0000 C CNN
+F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4135 5660 50  0001 C CNN
+F 3 "" H 4205 5660 50  0001 C CNN
+	1    4205 5660
 	0    1    1    0   
 $EndComp
 $Comp
@@ -348,39 +338,28 @@ F 1 "1N4841" H 4650 5200 50  0000 C CNN
 F 2 "Diodes_ThroughHole:D_DO-35_SOD27_P7.62mm_Horizontal" H 4650 5300 50  0001 C CNN
 F 3 "" H 4650 5300 50  0001 C CNN
 	1    4650 5300
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R7
 U 1 1 5AA1AFC6
-P 5000 5300
-F 0 "R7" V 5080 5300 50  0000 C CNN
-F 1 "4.7M" V 5000 5300 50  0000 C CNN
-F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4930 5300 50  0001 C CNN
-F 3 "" H 5000 5300 50  0001 C CNN
-	1    5000 5300
-	0    1    1    0   
-$EndComp
-$Comp
-L R R8
-U 1 1 5AA1B10C
-P 5150 4700
-F 0 "R8" V 5230 4700 50  0000 C CNN
-F 1 "4.7M" V 5150 4700 50  0000 C CNN
-F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5080 4700 50  0001 C CNN
-F 3 "" H 5150 4700 50  0001 C CNN
-	1    5150 4700
-	1    0    0    -1  
+P 4875 5875
+F 0 "R7" V 4955 5875 50  0000 C CNN
+F 1 "10k" V 4875 5875 50  0000 C CNN
+F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4805 5875 50  0001 C CNN
+F 3 "" H 4875 5875 50  0001 C CNN
+	1    4875 5875
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R10
 U 1 1 5AA1B20F
-P 5375 4700
-F 0 "R10" V 5455 4700 50  0000 C CNN
-F 1 "390k" V 5375 4700 50  0000 C CNN
-F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5305 4700 50  0001 C CNN
-F 3 "" H 5375 4700 50  0001 C CNN
-	1    5375 4700
+P 5325 4795
+F 0 "R10" V 5405 4795 50  0000 C CNN
+F 1 "390k" V 5325 4795 50  0000 C CNN
+F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5255 4795 50  0001 C CNN
+F 3 "" H 5325 4795 50  0001 C CNN
+	1    5325 4795
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -395,25 +374,14 @@ F 3 "" H 5325 5825 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R11
-U 1 1 5AA1B3D7
-P 5875 5600
-F 0 "R11" V 5955 5600 50  0000 C CNN
-F 1 "4.7M" V 5875 5600 50  0000 C CNN
-F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5805 5600 50  0001 C CNN
-F 3 "" H 5875 5600 50  0001 C CNN
-	1    5875 5600
-	0    1    1    0   
-$EndComp
-$Comp
 L C C9
 U 1 1 5AA1B6CC
-P 5150 5800
-F 0 "C9" H 5175 5900 50  0000 L CNN
-F 1 "100n" H 5175 5700 50  0000 L CNN
-F 2 "Capacitors_ThroughHole:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 5188 5650 50  0001 C CNN
-F 3 "" H 5150 5800 50  0001 C CNN
-	1    5150 5800
+P 5080 5875
+F 0 "C9" H 5105 5975 50  0000 L CNN
+F 1 "10n" H 5105 5775 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 5118 5725 50  0001 C CNN
+F 3 "" H 5080 5875 50  0001 C CNN
+	1    5080 5875
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -454,7 +422,7 @@ L R R12
 U 1 1 5AA1C9A7
 P 6350 5725
 F 0 "R12" V 6430 5725 50  0000 C CNN
-F 1 "R" V 6350 5725 50  0000 C CNN
+F 1 "8k" V 6350 5725 50  0000 C CNN
 F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6280 5725 50  0001 C CNN
 F 3 "" H 6350 5725 50  0001 C CNN
 	1    6350 5725
@@ -465,7 +433,7 @@ L R R13
 U 1 1 5AA1CA86
 P 6350 6075
 F 0 "R13" V 6430 6075 50  0000 C CNN
-F 1 "R" V 6350 6075 50  0000 C CNN
+F 1 "10k" V 6350 6075 50  0000 C CNN
 F 2 "Resistors_ThroughHole:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6280 6075 50  0001 C CNN
 F 3 "" H 6350 6075 50  0001 C CNN
 	1    6350 6075
@@ -661,20 +629,13 @@ Connection ~ 8200 1800
 Wire Wire Line
 	8000 1800 8000 1925
 Wire Wire Line
-	5725 5600 5325 5600
-Wire Wire Line
-	5325 5100 5325 5675
+	5325 4945 5325 5675
 Wire Wire Line
 	5325 5100 5375 5100
-Connection ~ 5325 5600
-Wire Wire Line
-	5375 5100 5375 4850
-Connection ~ 5375 5100
 Wire Wire Line
 	2325 4550 5575 4550
 Wire Wire Line
 	5575 4550 5575 4900
-Connection ~ 5375 4550
 Wire Wire Line
 	5575 6275 5575 5500
 Wire Wire Line
@@ -682,27 +643,8 @@ Wire Wire Line
 Wire Wire Line
 	5325 5975 5325 6275
 Wire Wire Line
-	5150 5950 5150 6275
-Wire Wire Line
-	5150 4850 5150 5650
-Wire Wire Line
-	5150 5300 5375 5300
-Connection ~ 5150 5300
-Connection ~ 5150 4550
-Wire Wire Line
-	4850 5300 4800 5300
-Wire Wire Line
-	4300 5300 4500 5300
-Connection ~ 4475 5300
-Wire Wire Line
-	3600 5675 4175 5675
-Wire Wire Line
 	3700 5400 3600 5400
-Connection ~ 3600 5675
 Connection ~ 5325 6275
-Connection ~ 5150 6275
-Wire Wire Line
-	4475 5675 4475 5300
 Wire Wire Line
 	3600 5400 3600 5675
 Wire Wire Line
@@ -741,12 +683,9 @@ Wire Wire Line
 	2325 5875 2325 6275
 Connection ~ 2325 6275
 Wire Wire Line
-	6025 5600 6025 5200
-Wire Wire Line
 	5975 5200 6350 5200
 Wire Wire Line
 	6350 5200 6350 5575
-Connection ~ 6025 5200
 Wire Wire Line
 	6350 6275 6350 6225
 Connection ~ 5575 6275
@@ -951,9 +890,9 @@ Wire Wire Line
 Wire Wire Line
 	6550 3925 6550 3650
 Wire Wire Line
-	5975 3650 6550 3650
+	6550 3650 5975 3650
 Wire Wire Line
-	5975 2875 5975 3650
+	5975 3650 5975 2875
 $Comp
 L GND #PWR023
 U 1 1 5AA3FAD8
@@ -1024,4 +963,43 @@ Wire Wire Line
 	7225 3425 7225 3075
 Wire Wire Line
 	7225 3075 6625 3075
+Wire Wire Line
+	4875 5725 4875 5300
+Wire Wire Line
+	5080 5300 5080 5725
+Connection ~ 4875 5300
+Connection ~ 5080 5300
+Wire Wire Line
+	4800 5300 5375 5300
+Wire Wire Line
+	4875 6025 4875 6275
+Connection ~ 4875 6275
+Wire Wire Line
+	5080 6025 5080 6275
+Connection ~ 5080 6275
+Wire Wire Line
+	4300 5300 4500 5300
+Wire Wire Line
+	4055 5660 3600 5660
+Connection ~ 3600 5660
+Wire Wire Line
+	4355 5660 4400 5660
+Wire Wire Line
+	4400 5660 4400 5300
+Connection ~ 4400 5300
+$Comp
+L LM324 U2
+U 3 1 5AA1A648
+P 5675 5200
+F 0 "U2" H 5675 5400 50  0000 L CNN
+F 1 "LM324" H 5675 5000 50  0000 L CNN
+F 2 "Housings_DIP:DIP-14_W7.62mm" H 5625 5300 50  0001 C CNN
+F 3 "" H 5725 5400 50  0001 C CNN
+	3    5675 5200
+	1    0    0    -1  
+$EndComp
+Connection ~ 5325 5100
+Wire Wire Line
+	5325 4645 5325 4550
+Connection ~ 5325 4550
 $EndSCHEMATC
