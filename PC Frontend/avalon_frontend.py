@@ -23,7 +23,16 @@ import socket    #UDP Communication Module
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #The class that performs the main control functions with the ROV
 class ROV():
-    #Definitions
+    """
+    A class used to facilitate communications with the Avalon ROV. UDP Communication is used via an Ethernet Interface to
+    communiacte with the ROV. Standard ROV Parameters:
+    
+    ROV IP Address: 192.168.1.5
+    ROV Port: 8000
+    
+    """
+    #Communication Definitions
+    com_buff_size = 1024    #The size of the buffer used to recieve message from the ROV
     
     #MAIN COMMUNICATION METHODS
     #Constructor, initialises communication with the ROV
@@ -47,6 +56,25 @@ class ROV():
         #Saving the ROV's IP Address and Port
         self.ip_address = rov_ip
         self.port = rov_port
+    
+    #Method used to send a message via UDP to the ROV
+    def send_message(self, message):
+        """
+        PURPOSE: Send a single message to the ROV via the UDP Communication Socket
+        INPUTS: message = A string that contains the message to be sent to the ROV
+        OUTPUTS: NONE
+        """
+        self.rov_socket.sendto(message, (self.ip_address, self.port))
+    
+    #Method used to recieve a message via UDP from the ROV
+    def recieve_message(self):
+        """
+        PURPOSE: Recieve a message from the ROV
+        INPUTS: NONE
+        OUTPUTS: The message sent by the ROV as a string
+        """
+        message = self.rov_socket.recv(self.com_buff_size)
+        return message
         
     #Method used to perform the full communication cycle with the ROV
     def communicate(self):
