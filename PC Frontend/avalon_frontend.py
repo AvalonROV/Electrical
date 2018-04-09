@@ -32,7 +32,39 @@ class ROV():
     
     """
     #Communication Definitions
-    com_buff_size = 1024    #The size of the buffer used to recieve message from the ROV
+    com_buff_size = 1024                                #The size of the buffer used to recieve message from the ROV
+    
+    #Thruster Parameters
+    thrust_vals = [0, 0, 0, 0, 0, 0]                    #A List containing the raw values for each thruster
+    
+    #IMU Parameters
+    imu_vals = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]           #A List containing the values from the IMU
+    
+    #Movement Parameters
+    depth_current = 0.0                                 #A Value containing the ROVs current depth
+    axis_stabilisation_flags = [0, 0, 0, 0, 0]          #A List containing the flags to enable/disable stabilisation on each axis
+    control_loop_pid_vals = [[0, 0, 0], [0, 0, 0]]      #An array containing the PID values for each control loop
+    axis_index = 0                                      #The index of the axis the system is currently referencing
+    control_loop_index = 0                              #The index of the control loop the system is currently referencing
+    
+    #Lifting Bag Parameters
+    release_mechanism_state = 0                         #A Value that indicates whether the currently selected lifting bag release mechanism should be open or closed
+    release_mechanism_index = 0                         #The index of the release mechanism the system is currently referencing
+    inflate_mechanism_state = 0                         #A Value that indicates whether the inflation system is enabled/disabled
+    
+    #Grabber Parameters
+    grabber_val = 0                                     #A Value that contains the percentage the grabber is open
+    
+    #Platform Levelling Parameters
+    platform_imu_vals = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]  #A List containg the values from the seismometer platform IMU
+    levelling_motor_flag = 0                            #A Value that contains the direction and speed of rotation of the leveling motor
+    
+    #Camera Parameters
+    camera_one_index = 0                                #A Value that contains the index of the camera to be shown on feed 1
+    camera_two_index = 0                                #A Value that contains the index of the camera to be shown on feed 2
+    
+    #Emergency Stop Values
+    emergency_thrust_flag = 0                           #A Value that indicates whether the emergency thruster stop is enabled/disabled
     
     #MAIN COMMUNICATION METHODS
     #Constructor, initialises communication with the ROV
