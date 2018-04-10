@@ -12,6 +12,7 @@ VERSION: PLEASE FILL ON RELEASE
 #MODULES
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 import socket    #UDP Communication Module
+import converttobinary as ctb    #Module that handles conversion of Python Values to Binary
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #DEFINITIONS
@@ -107,15 +108,6 @@ class ROV():
         """
         message = self.rov_socket.recv(self.com_buff_size)
         return message
-        
-    #Method used to perform the full communication cycle with the ROV
-    def communicate(self):
-        """
-        PURPOSE: Performs full ROV Communication Cycle, including Send and Recieve
-        INPUTS: NONE
-        OUTPUTS: Outputs 1 if the communication cycle was successful, Outputs 0 if the communication cycle failed        
-        """
-        print "Performing ROV Communication Cycle"
     
     #Method used to perform the Send communication cycle with the ROV
     def send_settings(self):
@@ -134,6 +126,15 @@ class ROV():
         OUTPUTS: Outputs 1 if the Recieve Cycle completes successfully, Outputs 0 if the Recieve Cycle fails
         """
         print "Recieving ROV Current Parameters"
+    
+    #Method used to perform the full communication cycle with the ROV
+    def communicate(self):
+        """
+        PURPOSE: Performs full ROV Communication Cycle, including Send and Recieve
+        INPUTS: NONE
+        OUTPUTS: Outputs 1 if the communication cycle was successful, Outputs 0 if the communication cycle failed        
+        """
+        print "Performing ROV Communication Cycle"
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #FUNCTIONS
