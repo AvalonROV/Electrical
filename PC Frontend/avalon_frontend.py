@@ -36,7 +36,7 @@ class ROV():
     com_buff_size = 1024                                #The size of the buffer used to recieve message from the ROV
     
     #Thruster Parameters
-    thrust_vals = [0, 0, 0, 0, 0, 0]                    #A List containing the raw values for each thruster
+    thrust_vals = [200, 100, 300, 1000, 100, 40]                    #A List containing the raw values for each thruster
     
     #IMU Parameters
     imu_vals = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]           #A List containing the values from the IMU
@@ -116,7 +116,12 @@ class ROV():
         INPUTS: NONE
         OUTPUTS: Outputs 1 if the Send Cycle completes successfully, Outputs 0 if the Send Cycle fails
         """
-        print "Sending Settings"
+        message_string = ""
+        
+        #Encoding and Appending Thruster Values to message string
+        message_string += self.encode_thrust_vals()
+        
+        print message_string
     
     #Method used to perform the Recieve communication cycle with the ROV
     def recieve_parameters(self):
@@ -135,7 +140,24 @@ class ROV():
         OUTPUTS: Outputs 1 if the communication cycle was successful, Outputs 0 if the communication cycle failed        
         """
         print "Performing ROV Communication Cycle"
-
-#--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#FUNCTIONS
-#--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    #ENCODING METHODS
+    #Method used to encode a thruster value for transmission to the ROV
+    def encode_thrust_val(self, thruster_val_index):
+        #Getting the current thrust value for the given thruster
+        thruster_val = self.thrust_vals[thruster_val_index]
+        
+        #Encoding the thruster value
+        encoded_val = ctb.short_pack(thruster_val)
+        return encoded_val
+    
+    #Method used to encode all thruster values and return as a list
+    def encode_thrust_vals(self):
+        self.encoded_thrust_vals = ""
+        
+        for thruster_index in range(0, len(self.thrust_vals)):
+            #Encoding the current thrust value
+            encoded_val = self.encode_thrust_val(thruster_index)
+            self.encoded_thrust_vals += encoded_val
+        print self.encoded_thrust_vals
+        return self.encoded_thrust_vals
