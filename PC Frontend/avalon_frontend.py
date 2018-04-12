@@ -119,6 +119,7 @@ class ROV():
         message_string += self.encode_thrust_vals()
         
         #Encoding and Appending the Stabilisation Flags to the message string
+        message_string += self.encode_stabilisation_flags()
     
     #Method used to perform the Recieve communication cycle with the ROV
     def recieve_parameters(self):
@@ -176,12 +177,16 @@ class ROV():
         OUTPUTS: encoded_value = The stabilisation flags encoded as a single Byte represented as a Python String
         """
         encoded_byte = 0
+        num_flags = len(self.axis_stabilisation_flags) - 1
         
-        for stabilisation_flag, index in enumerate(self.axis_stabilisation_flags):
-            encoded_byte | (stabilisation_flag << index)
-            print encoded_byte
+        #Converting the flags list into an Integer containing the Flags in the Same Order [0, 1, 1] ==> 011
+        for index, stabilisation_flag in enumerate(self.axis_stabilisation_flags):
+            index = num_flags - index
+            encoded_byte |= (stabilisation_flag << index)
         
-        encoded_byte = 
+        #Packing the Python Integer into a C Char
+        encoded_byte = ctb.char_pack(encoded_byte)
+        return encoded_byte
     
     #INPUT METHOODS - TO BE USED BY THE SOFTWARE TEAM TO SEND VALUES TO THE ROV
     #Method used to set all of the ROV's Thruster Values at once
@@ -233,4 +238,4 @@ class ROV():
         return self.depth_current
 
 rov = ROV("192.168.1.74", 8000)
-rov.send_settings()
+rov.encode_stabilisation_flags()
