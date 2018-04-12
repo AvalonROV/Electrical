@@ -36,7 +36,7 @@ class ROV():
     com_buff_size = 1024                                #The size of the buffer used to recieve message from the ROV
     
     #Thruster Parameters
-    thrust_vals = [200, 100, 300, 1000, 100, 40]                    #A List containing the raw values for each thruster
+    thrust_vals = [0, 0, 0, 0, 0, 0]                    #A List containing the raw values for each thruster
     
     #IMU Parameters
     imu_vals = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]           #A List containing the values from the IMU
@@ -45,12 +45,9 @@ class ROV():
     depth_current = 0.0                                 #A Value containing the ROVs current depth
     axis_stabilisation_flags = [0, 0, 0, 0, 0]          #A List containing the flags to enable/disable stabilisation on each axis
     control_loop_pid_vals = [[0, 0, 0], [0, 0, 0]]      #An array containing the PID values for each control loop
-    axis_index = 0                                      #The index of the axis the system is currently referencing
-    control_loop_index = 0                              #The index of the control loop the system is currently referencing
     
     #Lifting Bag Parameters
-    release_mechanism_state = 0                         #A Value that indicates whether the currently selected lifting bag release mechanism should be open or closed
-    release_mechanism_index = 0                         #The index of the release mechanism the system is currently referencing
+    release_mechanism_states = 0                        #A List containing the flags to open/close individual release mechanisms
     inflate_mechanism_state = 0                         #A Value that indicates whether the inflation system is enabled/disabled
     
     #Grabber Parameters
@@ -78,7 +75,7 @@ class ROV():
         """
         #Informing User of selected IP Address and Port
         print "Target IP Address: " + rov_ip
-        print "\nTarget Port: " + str(rov_port)
+        print "Target Port: " + str(rov_port)
         
         #Connecting to the ROV
         self.rov_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  #Specifies Internet and UDP Communication to the Socket Class
@@ -121,7 +118,7 @@ class ROV():
         #Encoding and Appending Thruster Values to message string
         message_string += self.encode_thrust_vals()
         
-        print message_string
+        #Encoding and Appending the Stabilisation Flags to the message string
     
     #Method used to perform the Recieve communication cycle with the ROV
     def recieve_parameters(self):
@@ -144,6 +141,11 @@ class ROV():
     #ENCODING METHODS
     #Method used to encode a thruster value for transmission to the ROV
     def encode_thrust_val(self, thruster_val_index):
+        """
+        PURPOSE: Encodes a single ROV Thrust value into a C Binary Value
+        INPUTS: thruster_val_index = The index of the thruster value that needs to be encoded
+        OUTPUTS: encoded_val = The encoded thruster value as a C Short represented as a Python String
+        """
         #Getting the current thrust value for the given thruster
         thruster_val = self.thrust_vals[thruster_val_index]
         
@@ -153,11 +155,82 @@ class ROV():
     
     #Method used to encode all thruster values and return as a list
     def encode_thrust_vals(self):
-        self.encoded_thrust_vals = ""
+        """
+        PURPOSE: Encodes all ROV Thrust values into a single message string
+        INPUTS: NONE
+        OUTPUTS: encoded_thrust_vals = The Thruster values encoded as C Shorts represented by a Python String
+        """
+        encoded_thrust_vals = ""
         
         for thruster_index in range(0, len(self.thrust_vals)):
             #Encoding the current thrust value
-            encoded_val = self.encode_thrust_val(thruster_index)
-            self.encoded_thrust_vals += encoded_val
-        print self.encoded_thrust_vals
-        return self.encoded_thrust_vals
+            encoded_thrust_vals += self.encode_thrust_val(thruster_index)
+
+        return encoded_thrust_vals
+    
+    #Method used to encode axis stabilisation flags into an individual Byte
+    def encode_stabilisation_flags(self):
+        """
+        PURPOSE: Encodes the axis stabilisation flags into a single C Character Byte represented as a Python String
+        INPUTS: NONE
+        OUTPUTS: encoded_value = The stabilisation flags encoded as a single Byte represented as a Python String
+        """
+        encoded_byte = 0
+        
+        for stabilisation_flag, index in enumerate(self.axis_stabilisation_flags):
+            encoded_byte | (stabilisation_flag << index)
+            print encoded_byte
+        
+        encoded_byte = 
+    
+    #INPUT METHOODS - TO BE USED BY THE SOFTWARE TEAM TO SEND VALUES TO THE ROV
+    #Method used to set all of the ROV's Thruster Values at once
+    def set_thrusts(self, new_thrust_vals):
+        """
+        PURPOSE: Sets the current thruster values of the ROV
+        INPUTS: new_thrust_vals = A list of the new thrust values as integers
+        OUTPUTS: NONE
+        """
+        self.thrust_vals = new_thrust_vals
+    
+    #Method used to set an individual ROV Thruster Value
+    def set_thrust(self, new_thrust, thruster_index):
+        """
+        PURPOSE: Sets the current thruster values of a specific ROV thruster
+        INPUTS: new_thrust = The new thrust value of the ROV thruster
+                thruster_index = The index of the thruster to set the thrust value for
+        OUTPUTS: NONE
+        """
+        self.thrust_vals[thruster_index] = new_thrust
+    
+    #Method used to set an axis stabilisation flag
+    def set_axis_stable(self, stabilisation_flag, axis_index):
+        """
+        PURPOSE: Enables or disabled the stabilisation of a given axis
+        INPUTS: stabilisation_flag = An integer value that enables or disabled axis stabilisation. 1 = Enable, 0 = Disable
+                axis_index = The index of the axis to set the stabilisation for
+        OUTPUTS: NONE
+        """
+        self.axis_stabilisation_flags[axis_index] = stabilisation_flag
+    
+    #OUTPUT METHODS - TO BE USED BY THE SOFTWARE TEAM TO RECIEVE VALUES FROM THE ROV
+    #Method used to get the current IMU values
+    def get_imu(self):
+        """
+        PURPOSE: Gets the current values outputted by the ROV IMU
+        INPUTS: NONE
+        OUTPUTS: imu_vals = The current values from the IMU as a list of floats
+        """
+        return self.imu_vals
+    
+    #Method used to get the ROVs current Depth
+    def get_depth(self):
+        """
+        PURPOSE: Gets the current depth of the ROV in meters compared to the waters surface
+        INPUTS: NONE
+        OUTPUTS: depth_current = The current depth of the ROV as a float
+        """
+        return self.depth_current
+
+rov = ROV("192.168.1.74", 8000)
+rov.send_settings()

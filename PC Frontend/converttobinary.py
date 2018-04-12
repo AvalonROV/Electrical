@@ -15,6 +15,7 @@ import struct        #Handles the packing of Binary Values into Strings that rep
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #DEFINITIONS
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CHR_FMT_STR = "!B"
 SHRT_FMT_STR = "!h"
 INT_FMT_STR = "!i"
 LONG_FMT_STR = "!l"
@@ -25,6 +26,18 @@ DBLE_FMT_STR = "!d"
 #FUNCTIONS
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #PACKING FUNCTIONS
+#Function used to convert a Python Integer into a C Char
+def char_pack(unpacked_val):
+    #Ensuring that the Python value is an Integer
+    unpacked_val = int(unpacked_val)
+    
+    #Ensuring that the Python Value is less than 256 and thus can be converted into a Character
+    assert unpacked_val < 256
+    
+    #Packing the Integer into a string representing a C Char
+    packed_val = struct.pack(CHR_FMT_STR, unpacked_val)
+    return packed_val
+
 #Function used to convert a Python Integer to a C Short
 def short_pack(unpacked_val):
     #Ensuring the Python Value is an Integer
@@ -71,6 +84,13 @@ def double_pack(unpacked_val):
     return packed_val
 
 #UNPACKING FUNCTIONS
+#Function used to convert a C Char to a Python Integer
+def char_unpack(packed_val):
+    #Unpacking the C Char
+    unpacked_val = struct.unpack(CHR_FMT_STR, packed_val)
+    unpacked_val = unpacked_val[0]
+    return unpacked_val
+
 #Function used to convert a C Short to a Python Integer
 def short_unpack(packed_val):
     #Unpacking the C Short
