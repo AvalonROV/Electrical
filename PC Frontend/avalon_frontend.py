@@ -134,7 +134,10 @@ class ROV():
         
         #Encoding and Appending the Camera Index Values to the message string
         message_string += self.encode_camera_index(self.camera_one_index) + self.encode_camera_index(self.camera_two_index)
-    
+        
+        #Sending the Message to the ROV
+        self.send_message(message_string)        
+        
     #Method used to perform the Recieve communication cycle with the ROV
     def recieve_parameters(self):
         """
@@ -142,7 +145,11 @@ class ROV():
         INPUTS: NONE
         OUTPUTS: Outputs 1 if the Recieve Cycle completes successfully, Outputs 0 if the Recieve Cycle fails
         """
-        print "Recieving ROV Current Parameters"
+        #Recieving the latest data from the ROV
+        message_string = self.recieve_message()
+        
+        #Decoding the IMU Values from the Message String
+        self.decode_imu_vals(message_string[0:24])
     
     #Method used to perform the full communication cycle with the ROV
     def communicate(self):
@@ -260,6 +267,22 @@ class ROV():
         """
         encoded_byte = ctb.char_pack(camera_index)
         return encoded_byte
+    
+    #DECODING FUNCTIONS
+    #Method used to decode the ROV IMU values
+    def decode_imu_vals(self, encoded_message):
+        """
+        PURPOSE: Decodes the ROV IMU values from the recieved message from the ROV
+        INPUTS: encoded_message = The ROV IMU Values as an encoded String
+        OUTPUTS: NONE
+        """
+        index = 0
+        
+        #Decoding the individual IMU values and storing them in the IMU Vals List
+        for imu_val_index in range(0, len(self.imu_vals)):
+            raw_encoded_value = encoded_message[index : index + 4]
+            self.imu_vals[imu_val_index] = ctb.float_unpack(raw_encoded_value)
+            index += 4
     
     #INPUT METHOODS - TO BE USED BY THE SOFTWARE TEAM TO SEND VALUES TO THE ROV
     #Method used to set all of the ROV's Thruster Values at once
