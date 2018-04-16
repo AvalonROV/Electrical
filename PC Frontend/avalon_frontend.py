@@ -44,17 +44,16 @@ class ROV():
     #Movement Parameters
     depth_current = 0.0                                 #A Value containing the ROVs current depth
     axis_stabilisation_flags = [0, 0, 0, 0, 0]          #A List containing the flags to enable/disable stabilisation on each axis
-    control_loop_pid_vals = [[0, 0, 0], [0, 0, 0]]      #An array containing the PID values for each control loop
     
     #Lifting Bag Parameters
-    release_mechanism_states = 0                        #A List containing the flags to open/close individual release mechanisms
+    release_mechanism_states = [0, 0]                   #A List containing the flags to open/close individual release mechanisms
     inflate_mechanism_state = 0                         #A Value that indicates whether the inflation system is enabled/disabled
     
     #Grabber Parameters
     grabber_val = 0                                     #A Value that contains the percentage the grabber is open
     
     #Platform Levelling Parameters
-    platform_imu_vals = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]  #A List containg the values from the seismometer platform IMU
+    platform_imu_vals = [0.0, 0.0]                      #A List containg the values from the seismometer platform IMU
     levelling_motor_flag = 0                            #A Value that contains the direction and speed of rotation of the leveling motor
     
     #Camera Parameters
@@ -116,10 +115,25 @@ class ROV():
         message_string = ""
         
         #Encoding and Appending Thruster Values to message string
-        message_string += self.encode_thrust_vals()
+        message_string += self.encode_all_thrusts()
         
         #Encoding and Appending the Stabilisation Flags to the message string
         message_string += self.encode_stabilisation_flags()
+        
+        #Encoding and Appending the Release Mechanism Flags to the message string
+        message_string += self.encode_release_mech_flags()
+        
+        #Encoding and Appending the Inflation Mechanism State to the message string
+        message_string += self.encode_inflate_mech_state()
+        
+        #Encoding and Appending the Grabber Position to the message string
+        message_string += self.encode_grabber_position()
+        
+        #Encoding and Appending the Levelling Motor Flag to the message string
+        message_string += self.encode_levelling_motor_flag()
+        
+        #Encoding and Appending the Camera Index Values to the message string
+        message_string += self.encode_camera_index(self.camera_one_index) + self.encode_camera_index(self.camera_two_index)
     
     #Method used to perform the Recieve communication cycle with the ROV
     def recieve_parameters(self):
@@ -155,7 +169,7 @@ class ROV():
         return encoded_val
     
     #Method used to encode all thruster values and return as a list
-    def encode_thrust_vals(self):
+    def encode_all_thrusts(self):
         """
         PURPOSE: Encodes all ROV Thrust values into a single message string
         INPUTS: NONE
@@ -174,7 +188,7 @@ class ROV():
         """
         PURPOSE: Encodes the axis stabilisation flags into a single C Character Byte represented as a Python String
         INPUTS: NONE
-        OUTPUTS: encoded_value = The stabilisation flags encoded as a single Byte represented as a Python String
+        OUTPUTS: encoded_byte = The stabilisation flags encoded as a single Byte represented as a Python String
         """
         encoded_byte = 0
         num_flags = len(self.axis_stabilisation_flags) - 1
@@ -186,6 +200,65 @@ class ROV():
         
         #Packing the Python Integer into a C Char
         encoded_byte = ctb.char_pack(encoded_byte)
+        return encoded_byte
+    
+    #Method used to encode release mechanism flags into a single byte
+    def encode_release_mech_flags(self):
+        """
+        PURPOSE: Encodes the release mechanism state flags as a single C Character Byte represented as a Python String
+        INPUTS: NONE
+        OUTPUTS: encoded_byte = The release mechanism flags encoded as a single Byte represented as a Python String
+        """
+        encoded_byte = 0
+        num_flags = len(self.release_mechanism_states) - 1
+        
+        #Converting the flags list into an Integer containing the Flags in the Same Order [0, 1, 1] ==> 011
+        for index, stabilisation_flag in enumerate(self.release_mechanism_states):
+            index = num_flags - index
+            encoded_byte |= (stabilisation_flag << index)
+        
+        #Packing the Python Integer into a C Char
+        encoded_byte = ctb.char_pack(encoded_byte)
+        return encoded_byte
+    
+    #Method used to encode the lifting bag inflation mechanism state
+    def encode_inflate_mech_state(self):
+        """
+        PURPOSE: Encodes the inflation mechanism state into a single C Character Byte represented as a Python String
+        INPUTS: NONE
+        OUTPUTS: encoded_byte = The inflation mechanism state as a single Byte represnted as a Python String
+        """
+        encoded_byte = ctb.char_pack(self.inflate_mechanism_state)
+        return encoded_byte
+    
+    #Method used to encode the position of the grabbing mechanism
+    def encode_grabber_position(self):
+        """
+        PURPOSE: Encodes the grabber position into a single C Character Byte represented as a Python String
+        INPUTS: NONE
+        OUTPUTS: encoded_byte = The grabber position as a single Byte represented as a Python String
+        """
+        encoded_byte = ctb.char_pack(self.grabber_val)
+        return encoded_byte
+    
+    #Method used to encode the levelling motor flag
+    def encode_levelling_motor_flag(self):
+        """
+        PURPOSE: Encodes the levelling motor rotation direction and speed as a single C Character Byte represented as a Python String
+        INPUTS: NONE
+        OUTPUTS: encoded_byte = The levelling motor rotation and speed as a single Byte represented as a Python String
+        """
+        encoded_byte = ctb.char_pack(self.levelling_motor_flag)
+        return encoded_byte
+    
+    #Method used to encode a camera channel index
+    def encode_camera_index(self, camera_index):
+        """
+        PURPOSE: Encodes the camera index as a single C Character Byte represented as a Python String
+        INPUTS: camera_index = The camera index to be encoded
+        OUTPUTS: encoded_byte = The camera index as a single Byte represented as a Python String
+        """
+        encoded_byte = ctb.char_pack(camera_index)
         return encoded_byte
     
     #INPUT METHOODS - TO BE USED BY THE SOFTWARE TEAM TO SEND VALUES TO THE ROV
@@ -211,12 +284,60 @@ class ROV():
     #Method used to set an axis stabilisation flag
     def set_axis_stable(self, stabilisation_flag, axis_index):
         """
-        PURPOSE: Enables or disabled the stabilisation of a given axis
+        PURPOSE: Enables or disables the stabilisation of a given axis
         INPUTS: stabilisation_flag = An integer value that enables or disabled axis stabilisation. 1 = Enable, 0 = Disable
                 axis_index = The index of the axis to set the stabilisation for
         OUTPUTS: NONE
         """
         self.axis_stabilisation_flags[axis_index] = stabilisation_flag
+    
+    #Method used to set the state of a lifting bag release mechanism
+    def set_lift_bag_release(self, mech_state, mech_index):
+        """
+        PURPOSE: Enables or disables the release mechanism of a defined lifting bag
+        INPUTS: mech_state = Enables or disables the release mechanism. 1 = Enabled (Open), 0 = Disabled (Closed)
+                mech_index = The index of the mechanism being set as an integer
+        OUTPUTS: NONE
+        """
+        self.release_mechanism_states[mech_index] = mech_state
+        
+    #Method used to set the state of the lifting bag inflation mechanism
+    def set_lift_bag_inflate(self, inflate_mech_state):
+        """
+        PURPOSE: Enables or disables the lifting bag inflation mechanism.
+        INPUTS: inflate_mech_state = 1 = Inflation Mechanism Active, 0 = Inflation Mechanism Disabled
+        OUTPUTS: NONE
+        """
+        self.inflate_mechanism_state = inflate_mech_state
+    
+    #Method used to set the grabber arm manipulator position
+    def set_grabber_position(self, grabber_position):
+        """
+        PURPOSE: Sets the position of the grabber arm as a percentage open
+        INPUTS: grabber_position = The position of the grabber as a percentage open. 100 = Fully Open, 0 = Fully Closed
+        OUTPUTS: NONE
+        """
+        self.grabber_val = grabber_position
+    
+    #Method used to set the levelling motor rotation speed and direction
+    def set_levelling_motor_rotation(self, levelling_motor_val):
+        """
+        PURPOSE: Sets the direction and speed of the levelling motors rotation
+        INPUTS: levelling_motor_val = An integer value representing the direction and speed of the motors rotation. 200 = Rotate full speed Clockwise, 0 = Rotate full speed Anticlockwide, 100 = Full Stop
+        OUTPUTS: NONE        
+        """
+        self.levelling_motor_flag = levelling_motor_val
+    
+    #Method used to set the currently selected cameras for channels 1 and 2
+    def set_selected_cameras(self, camera_one_index, camera_two_index):
+        """
+        PURPOSE: Sets the selected cameras for camera feeds one and two
+        INPUTS: camera_one_index = An integer value of 0 - 2 that selects the camera shown on channel 1
+                camera_two_index = An integer value of 0 - 2 that selects the camera shown on channel 2
+        OUTPUTS: NONE
+        """
+        self.camera_one_index = camera_one_index
+        self.camera_two_index = camera_two_index
     
     #OUTPUT METHODS - TO BE USED BY THE SOFTWARE TEAM TO RECIEVE VALUES FROM THE ROV
     #Method used to get the current IMU values
@@ -236,6 +357,18 @@ class ROV():
         OUTPUTS: depth_current = The current depth of the ROV as a float
         """
         return self.depth_current
+    
+    #Method used to get the Platform IMUs Angles to the Horizontal
+    def get_platform_imu(self):
+        """
+        PURPOSE: Gets the current angles to the horizontal in the X and Y Direction for the platform IMU.
+        INPUTS: NONE
+        OUTPUTS: x_angle = The angle to the horizontal in the X direction
+                y_angle = The angle to the horizontal in the Y direction
+        """
+        x_angle = self.platform_imu_vals[0]
+        y_angle = self.platform_imu_vals[1]
+        return x_angle, y_angle
 
 rov = ROV("192.168.1.74", 8000)
 rov.encode_stabilisation_flags()
