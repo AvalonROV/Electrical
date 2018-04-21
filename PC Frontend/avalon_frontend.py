@@ -393,5 +393,5 @@ class ROV():
         y_angle = self.platform_imu_vals[1]
         return x_angle, y_angle
 
-rov = ROV("192.168.1.74", 8000)
+rov = ROV("192.168.1.255", 5000)
 rov.encode_stabilisation_flags()
