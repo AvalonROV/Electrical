@@ -4,7 +4,7 @@
 #include <Servo.h>
 
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-IPAddress ip(192, 168, 1, 5);
+IPAddress ip(192, 168, 0, 5);
 unsigned int localPort = 8000;
 EthernetUDP Udp;
 
@@ -72,8 +72,8 @@ void loop()
   T5.writeMicroseconds(Motor(25, 0));
   T6.writeMicroseconds(Motor(31, 0));
 
-  digitalWrite(gripper, (packetBuffer[32] == '1')? HIGH:LOW);
-  digitalWrite(lift_bag,(packetBuffer[33] == '1')? HIGH:LOW);
+  digitalWrite(gripper, (packetBuffer[37] == '1')? HIGH:LOW);
+  digitalWrite(lift_bag,(packetBuffer[40] == '1')? HIGH:LOW);
   
   //for (int i = 0; i < 50; i++)
   //  packetBuffer[i] = '0';
