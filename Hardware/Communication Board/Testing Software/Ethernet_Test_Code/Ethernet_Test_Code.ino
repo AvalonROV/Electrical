@@ -1,5 +1,5 @@
 /*
- * UIPEthernet UdpClient example.
+ * UIPEthernet UdpServer example.
  *
  * UIPEthernet is a TCP/IP stack that can be used with a enc28j60 based
  * Ethernet-shield.
@@ -8,10 +8,8 @@
  *
  *      -----------------
  *
- * This UdpClient example tries to send a packet via udp to 192.168.0.1
- * on port 5000 every 5 seconds. After successfully sending the packet it
- * waits for up to 5 seconds for a response on the local port that has been
- * implicitly opened when sending the packet.
+ * This UdpServer example sets up a udp-server at 192.168.0.6 on port 5000.
+ * send packet via upd to test
  *
  * Copyright (C) 2013 by Norbert Truchsess (norbert.truchsess@t-online.de)
  */
@@ -19,7 +17,6 @@
 #include <UIPEthernet.h>
 
 EthernetUDP udp;
-unsigned long next;
 
 void setup() {
 
@@ -27,68 +24,49 @@ void setup() {
 
   uint8_t mac[6] = {0x00,0x01,0x02,0x03,0x04,0x05};
 
-  Ethernet.begin(mac,IPAddress(192,168,1,74));
+  Ethernet.begin(mac,IPAddress(0,0,0,0));
 
-  next = millis()+5000;
+  int success = udp.begin(9999);
+
+  Serial.print("initialize: ");
+  Serial.println(success ? "success" : "failed");
+
 }
 
 void loop() {
-
+  delay(1000);
   int success;
-  int len = 0;
+    do
+      {
+        Serial.print("remote ip: ");
+        Serial.println(udp.remoteIP());
+        Serial.print("remote port: ");
+        Serial.println(udp.remotePort());
+        //send new packet back to ip/port of client. This also
+        //configures the current connection to ignore packets from
+        //other clients!
+        success = udp.beginPacket(udp.remoteIP(),udp.remotePort());
+        Serial.print("beginPacket: ");
+        Serial.println(success ? "success" : "failed");
+    //beginPacket fails if remote ethaddr is unknown. In this case an
+    //arp-request is send out first and beginPacket succeeds as soon
+    //the arp-response is received.
+      }
+    while (!success);
 
-  if (((signed long)(millis()-next))>0)
-    {
-      do
-        {
-          success = udp.beginPacket(IPAddress(192,168,1,2),5000);
-          Serial.print("beginPacket: ");
-          Serial.println(success ? "success" : "failed");
-          //beginPacket fails if remote ethaddr is unknown. In this case an
-          //arp-request is send out first and beginPacket succeeds as soon
-          //the arp-response is received.
-        }
-      while (!success && ((signed long)(millis()-next))<0);
-      if (!success )
-        goto stop;
+    success = udp.println("hello world from arduino");
 
-      success = udp.write("hello world from arduino");
+    Serial.print("bytes written: ");
+    Serial.println(success);
 
-      Serial.print("bytes written: ");
-      Serial.println(success);
+    success = udp.endPacket();
 
-      success = udp.endPacket();
+    Serial.print("endPacket: ");
+    Serial.println(success ? "success" : "failed");
 
-      Serial.print("endPacket: ");
-      Serial.println(success ? "success" : "failed");
-
-      do
-        {
-          //check for new udp-packet:
-          success = udp.parsePacket();
-        }
-      while (!success && ((signed long)(millis()-next))<0);
-      if (!success )
-        goto stop;
-
-      Serial.print("received: '");
-      do
-        {
-          int c = udp.read();
-          Serial.write(c);
-          len++;
-        }
-      while ((success = udp.available())>0);
-      Serial.print("', ");
-      Serial.print(len);
-      Serial.println(" bytes");
-
-      //finish reading this packet:
-      udp.flush();
-
-      stop:
-      udp.stop();
-      next = millis()+5000;
-    }
-}
+    udp.stop();
+    //restart with new connection to receive packets from other clients
+    Serial.print("restart connection: ");
+    Serial.println (udp.begin(5000) ? "success" : "failed");
+  }
 
