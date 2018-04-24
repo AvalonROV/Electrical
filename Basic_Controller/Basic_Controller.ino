@@ -16,6 +16,9 @@ Servo T1, T2, T3, T4, T5, T6;
 #define gripper 8
 #define lift_bag 9
 
+int stp = A5;
+int dir = A4;
+
 void setup()
 {
   Ethernet.begin(mac, ip);
@@ -23,6 +26,8 @@ void setup()
 
   pinMode(gripper, OUTPUT);
   pinMode(lift_bag, OUTPUT);
+  pinMode(stp, OUTPUT);
+  pinMode(dir, OUTPUT);
   
   Serial.begin(57600);
 
@@ -72,9 +77,27 @@ void loop()
   T5.writeMicroseconds(Motor(25, 0));
   T6.writeMicroseconds(Motor(31, 0));
 
-  digitalWrite(gripper, (packetBuffer[37] == '1')? HIGH:LOW);
-  digitalWrite(lift_bag,(packetBuffer[40] == '1')? HIGH:LOW);
-  
+  digitalWrite(lift_bag, (packetBuffer[37] == '1')? HIGH:LOW);
+  digitalWrite(gripper,(packetBuffer[40] == '1')? HIGH:LOW);
+
+  if(packetBuffer[43] == '1')
+  {
+    digitalWrite(dir,HIGH);
+
+    digitalWrite(stp,HIGH);
+    delayMicroseconds(100);
+    digitalWrite(stp,LOW);
+    delayMicroseconds(100);
+  }
+  else if(packetBuffer[43] == '2')
+  {
+    digitalWrite(dir,LOW);
+    
+    digitalWrite(stp,HIGH);
+    delayMicroseconds(100);
+    digitalWrite(stp,LOW);
+    delayMicroseconds(100);
+  }
   //for (int i = 0; i < 50; i++)
   //  packetBuffer[i] = '0';
 
