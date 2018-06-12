@@ -1,3 +1,4 @@
+
 /*
  * This code initiates an interface with the ENC28J60 Ethernet Controller using the Arduino UIPEthernet library.
  * This code is specifically written for the Arduino Due and as such will not work with other Arduino Boards,
@@ -41,12 +42,6 @@ uint8_t mac[6] = {0x00,0x01,0x02,0x03,0x04,0x05};
 void setup(void){
   //Beginning Serial Interface for Debugging
   Serial.begin(115200);
-
-  //Setting the Reset Pin and Resetting the ENC28J60
-  pinMode(ENC_R, OUTPUT);
-  digitalWrite(ENC_R, LOW);
-  delay(1000);
-  digitalWrite(ENC_R, HIGH);
 
   //Initializing Ethernet Controller
   Serial.println("Initializing Ethernet Controller");

@@ -12,7 +12,7 @@
 #define ENC_R 17    //The ENC28J60 Reset Pin
 
 //VARIABLES
-int enc_addr = 0x01;   //The address of the Control Register to be read
+int enc_addr = 0x0C;   //The address of the Control Register to be read
 int enc_opcode = B000;  //The opcode used to read from a control Register
 
 //SETUP CODE
