@@ -4,7 +4,7 @@
 #include <Servo.h>
 
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-IPAddress ip(192, 168, 0, 5);
+IPAddress ip(192, 168, 1, 5);
 unsigned int localPort = 8000;
 EthernetUDP Udp;
 
@@ -13,11 +13,14 @@ String tmp = "";
 
 Servo T1, T2, T3, T4, T5, T6;
 
-#define gripper 8
-#define lift_bag 9
+//#define gripper 8
+//#define lift_bag 9
 
-int stp = A5;
-int dir = A4;
+int gripper= A4;
+int lift_bag= A3;
+
+int stp = A1;
+int dir = A0;
 
 void setup()
 {
