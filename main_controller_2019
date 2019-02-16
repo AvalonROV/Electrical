@@ -1,0 +1,210 @@
+/*
+  ##################################
+  Avalon ROV main controller program
+
+  This code was not intended for public use
+  thus should be used be used with caution
+
+  Written by Joseph Orford for Avalon
+  Co-authors
+  Inset yo name
+
+  16/02/2019 : document created (blundered together)
+  ##################################
+*/
+
+//############################
+//STRICTLY NO DELAYS IN THIS CODE
+//############################
+
+#include <Servo.h>
+#include <Wire.h>
+
+//temporary variables for later use in code
+//saves on memory
+int temp_0 = 0;
+int temp_1 = 0;
+int temp_2 = 0;
+
+//main timing variable (DO NOT TOUCH)
+int timer;
+int timer_1; //assigned to led timing
+int timer_2; //unassigned
+int timer_3; //unassigned
+
+//i2c addresses
+#define cam_switch_adr 0x06 //if pulled high use 0x86 | if pulled low use 0x06
+#define imu_adr 0x68 //if pulled high use 0x69 | if pulled low use 0x68 //same for ICM-20948
+#define temp_humid_adr 0x44 //if pulled high use 0x45 | if pulled low use 0x45
+#define oled_adr 0x3C //this display only has one possible address
+
+//gpio pins with no extra circuitry
+#define gpio_1 64 //pin 87 | analog A10
+#define gpio_2 65 //pin 86 | analog A11
+#define gpio_3 66 //pin 85 | analog A12
+#define gpio_4 67 //pin 84 | analog A13
+#define gpio_5 68 //pin 83 | analog A14
+#define gpio_6 22 //pin 78
+#define gpio_7 23 //pin 77
+#define gpio_8 24 //pin 76
+#define gpio_9 25 //pin 75
+#define gpio_10 26 //pin 74
+#define gpio_11 27 //pin 73
+#define gpio_12 28 //pin 72
+
+//MOSFET pins
+#define mosfet_1 63 //pin 88 | analog A9
+
+//proximity sensor
+#define prox A15 //pin 82 | digital 69
+
+//enable and alter pins
+#define reg_enable 12 //pin 25
+#define IMU_int 13 //pin 26
+
+//GPIO with pull up resistors
+#define gpio_pu_1 29 //pin 71
+#define gpio_pu_2 39 //pin 70
+
+//motors PWM
+#define motor_1 6 //pin 15 | PWM
+#define motor_2 7 //pin 16 | PWM
+#define motor_3 3 //pin 7 | PWM
+#define motor_4 2 //pin 6 | PWM
+#define motor_5 5 //pin 5 | PWM
+#define motor_6 4 //pin 1 | PWM
+
+//12v sensor
+#define sense_12 A0 //pin 97 | digital 54
+
+//indicator LEDs
+#define red 46 //pin 38 | PWM
+#define green 45 //pin 39 | PWM
+#define blue 44 //pin 40 | PWM
+
+//thrusters
+#define thruster_1_pin 55 //pin 96 | analog A1
+#define thruster_2_pin 56 //pin 95 | analog A2
+#define thruster_3_pin 57 //pin 94 | analog A3
+#define thruster_4_pin 58 //pin 93 | analog A4
+#define thruster_5_pin 59 //pin 92 | analog A5
+#define thruster_6_pin 60 //pin 91 | analog A6
+#define thruster_7_pin 61 //pin 90 | analog A7
+#define thruster_8_pin 62 //pin 89 | analog A8
+
+Servo thruster_1;
+Servo thruster_2;
+Servo thruster_3;
+Servo thruster_4;
+Servo thruster_5;
+Servo thruster_6;
+Servo thruster_7;
+Servo thruster_8;
+
+Servo thruster_list[8] = {thruster_1,
+                          thruster_2,
+                          thruster_3,
+                          thruster_4,
+                          thruster_5,
+                          thruster_6,
+                          thruster_7,
+                          thruster_8
+                         };
+void setup() {
+  Serial.begin(576000); //debug and programming comms
+  //Serial1.begin(576000); //backup debug comms
+  Serial3.begin(250000); //main differential comms
+  //Serial2 unimplemented
+
+  //thruster setup
+  thruster_1.attach(thruster_1_pin);
+  thruster_2.attach(thruster_2_pin);
+  thruster_3.attach(thruster_3_pin);
+  thruster_4.attach(thruster_4_pin);
+  thruster_5.attach(thruster_5_pin);
+  thruster_6.attach(thruster_6_pin);
+  thruster_7.attach(thruster_7_pin);
+  thruster_8.attach(thruster_8_pin);
+
+  //gpio setup
+  pinMode(gpio_1, OUTPUT);
+  pinMode(gpio_2, OUTPUT);
+  pinMode(gpio_3, OUTPUT);
+  pinMode(gpio_4, OUTPUT);
+  pinMode(gpio_5, OUTPUT);
+  pinMode(gpio_6, OUTPUT);
+  pinMode(gpio_7, OUTPUT);
+  pinMode(gpio_8, OUTPUT);
+  pinMode(gpio_9, OUTPUT);
+  pinMode(gpio_10, OUTPUT);
+  pinMode(gpio_11, OUTPUT);
+  pinMode(gpio_12, OUTPUT);
+  pinMode(gpio_pu_1, OUTPUT);
+  pinMode(gpio_pu_2, OUTPUT);
+
+  //mosfet setup
+  pinMode(mosfet_1, OUTPUT);
+
+  //sensors
+  pinMode(prox, INPUT);
+  pinMode(sense_12, INPUT);
+
+  //motor setup
+  pinMode(motor_1, OUTPUT);
+  pinMode(motor_2, OUTPUT);
+  pinMode(motor_3, OUTPUT);
+  pinMode(motor_4, OUTPUT);
+  pinMode(motor_5, OUTPUT);
+  pinMode(motor_6, OUTPUT);
+
+  //control
+  pinMode(reg_enable, OUTPUT);
+  pinMode(IMU_int, OUTPUT);
+}
+
+void boot_sequence() {
+  //enable regulator and choose address of IMU
+  digitalWrite(reg_enable, HIGH);
+  digitalWrite(IMU_int, HIGH);
+  
+  set_led(0, 0, 0);
+  
+  //Stop all the thrusters
+  for (temp_0 = 0; temp_0 < 8; temp_0++) {
+    thruster_list[temp_0].writeMicroseconds(1500);
+  }
+}
+
+//function for speed of thruster between 0 and 100%
+//direction is 1 for forwards, -1 for backwards, 0 for stop
+void set_thrust(int which_thruster, int thruster_speed, int thruster_direction = 0) {
+  temp_0 = round(1500 + 400 * thruster_direction * (thruster_speed / 100));
+  temp_0 > 1900 ? temp_0 = 1900 : temp_0 < 1100 ? temp_0 = 1100 : temp_0 = temp_0;
+  thruster_list[which_thruster - 1].writeMicroseconds(temp_0);
+}
+
+void set_led(int r = 0, int g = 0, int b = 0) {
+  analogWrite(red, r > 255 ? 255 : r < 0 ? 0 : 0);
+  analogWrite(green, g > 255 ? 255 : g < 0 ? 0 : 0);
+  analogWrite(blue, b > 255 ? 255 : b < 0 ? 0 : 0);
+}
+
+void loop() {
+  boot_sequence();
+  timer_1 = millis(); //get current millis timer
+  while (0 != 1) {
+    if (timer_1 - millis() > 1000) {
+      set_led(0, 0, 0);
+      timer_1 = millis();
+    }
+    if (timer_1 - millis() > 500) {
+      set_led(120, 120, 120);
+    }
+  }
+}
+
+
+
+
+
+
