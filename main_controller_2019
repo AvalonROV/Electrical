@@ -193,11 +193,11 @@ void loop() {
   boot_sequence();
   timer_1 = millis(); //get current millis timer
   while (0 != 1) {
-    if (timer_1 - millis() > 1000) {
+    if (millis() - timer_1 > 1000) {
       set_led(0, 0, 0);
       timer_1 = millis();
     }
-    if (timer_1 - millis() > 500) {
+    if (millis() - timer_1 > 500) {
       set_led(120, 120, 120);
     }
   }
